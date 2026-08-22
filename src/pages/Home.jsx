@@ -97,12 +97,12 @@ export default function Home() {
 
       {/* ── Product Line Section ── */}
       <section className="section-container py-20">
-        {/* Header Row */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
+        {/* Header Row — centered */}
+        <div className="flex flex-col items-center text-center gap-6 mb-12">
           <div>
             <p className="text-accent font-mono text-sm font-bold uppercase tracking-widest mb-2">Product Line</p>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-primary dark:text-white tracking-tight leading-tight">
-              UPVC Pipe in<br className="hidden sm:block" /> Two Builds
+              UPVC Pipe in Two Builds
             </h2>
             <p className="text-steel dark:text-gray-400 mt-4 max-w-xl text-base leading-relaxed">
               The same A-style socketed joint, produced in the finish your project calls for.
