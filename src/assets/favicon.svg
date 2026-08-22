@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Background circle -->
+  <circle cx="32" cy="32" r="32" fill="#16225C"/>
+  <!-- Left stroke (green) -->
+  <polygon points="10,54 22,10 28,10 16,54" fill="#79B62F"/>
+  <!-- Right stroke (white) -->
+  <polygon points="26,54 38,10 46,10 34,54" fill="#ffffff"/>
+</svg>
