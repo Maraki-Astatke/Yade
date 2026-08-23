@@ -2,6 +2,66 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ── Brand colour hard-overrides ─────────────────────────────────────────
+   Hex values for direct CSS usage + RGB channels for Tailwind /opacity modifiers.
+   Change ONLY these variables to rebrand the entire site instantly.
+   ──────────────────────────────────────────────────────────────────────── */
+:root {
+  /* Teal-green accent — replaces all orange */
+  --brand-accent:        #01C38D;
+  --brand-accent-light:  #00d99e;
+  --brand-accent-dark:   #01a878;
+
+  /* Navy primary — replaces all blue */
+  --brand-primary:       #132D46;
+  --brand-primary-light: #1a3d5e;
+  --brand-primary-dark:  #0b1f31;
+
+  /* RGB channels — Tailwind reads these for bg-accent/20, border-accent/40, shadow-accent/30 etc. */
+  --color-accent:        1 195 141;    /* #01C38D */
+  --color-accent-light:  0 217 158;    /* #00d99e */
+  --color-accent-dark:   1 168 120;    /* #01a878 */
+  --color-primary:       19 45 70;     /* #132D46 */
+  --color-primary-light: 26 61 94;     /* #1a3d5e */
+  --color-primary-dark:  11 31 49;     /* #0b1f31 */
+}
+
+/* ── Explicit overrides (belt-and-suspenders for JIT cache) ─────────────── */
+/* Accent — text */
+.text-accent,
+a.text-accent,
+span.text-accent,
+p.text-accent                    { color: #01C38D !important; }
+.hover\:text-accent:hover        { color: #01C38D !important; }
+.hover\:text-accent-light:hover  { color: #00d99e !important; }
+
+/* Accent — background */
+.bg-accent                       { background-color: #01C38D !important; }
+.hover\:bg-accent:hover          { background-color: #01C38D !important; }
+.hover\:bg-accent-light:hover    { background-color: #00d99e !important; }
+.bg-accent\/10                   { background-color: rgba(1,195,141,.10) !important; }
+.bg-accent\/20                   { background-color: rgba(1,195,141,.20) !important; }
+.bg-accent\/30                   { background-color: rgba(1,195,141,.30) !important; }
+
+/* Accent — border */
+.border-accent                   { border-color: #01C38D !important; }
+.border-accent\/20               { border-color: rgba(1,195,141,.20) !important; }
+.hover\:border-accent\/40:hover  { border-color: rgba(1,195,141,.40) !important; }
+
+/* Accent — underline (navbar active) */
+.decoration-accent               { text-decoration-color: #01C38D !important; }
+
+/* Accent — ring */
+.focus\:ring-accent:focus        { --tw-ring-color: #01C38D !important; }
+
+/* Primary — background */
+.bg-primary                      { background-color: #132D46 !important; }
+.hover\:bg-primary:hover         { background-color: #132D46 !important; }
+
+/* Primary — text */
+.text-primary                    { color: #132D46 !important; }
+
+
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -22,17 +82,46 @@
     @apply w-full mx-auto px-4 sm:px-8 lg:px-16 xl:px-24;
   }
 
-  /* CTA button style shared across the site */
+  /* CTA button — guaranteed brand colours */
   .btn-accent {
-    @apply inline-flex items-center gap-2 bg-accent hover:bg-accent-light text-white font-semibold
-      px-6 py-3 rounded-md shadow-lg shadow-accent/20 transition-all duration-300
-      hover:-translate-y-0.5 hover:shadow-xl hover:shadow-accent/30;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--brand-accent);
+    color: white;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.375rem;
+    box-shadow: 0 4px 14px color-mix(in srgb, var(--brand-accent) 30%, transparent);
+    transition: all 0.3s;
+  }
+  .btn-accent:hover {
+    background-color: var(--brand-accent-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px color-mix(in srgb, var(--brand-accent) 35%, transparent);
   }
 
   .btn-outline {
-    @apply inline-flex items-center gap-2 border-2 border-primary dark:border-white/70 text-primary
-      dark:text-white font-semibold px-6 py-3 rounded-md transition-all duration-300
-      hover:bg-primary hover:text-white dark:hover:bg-white/10;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 2px solid var(--brand-primary);
+    color: var(--brand-primary);
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.375rem;
+    transition: all 0.3s;
+  }
+  .btn-outline:hover {
+    background-color: var(--brand-primary);
+    color: white;
+  }
+  .dark .btn-outline {
+    border-color: rgba(255,255,255,0.7);
+    color: white;
+  }
+  .dark .btn-outline:hover {
+    background-color: rgba(255,255,255,0.1);
   }
 }
 
@@ -59,7 +148,7 @@
     left: -50%;
     width: 200%;
     height: 200%;
-    background: conic-gradient(transparent, #dd6b20, transparent 30%);
+    background: conic-gradient(transparent, #01C38D, transparent 30%);
     animation: spin-border 2.5s linear infinite;
     z-index: -2;
   }
@@ -82,90 +171,3 @@
   }
 }
 
-/* ------------------------------------------------------------------ */
-/* Hero "pipe-join" interaction — metallic industrial styling.        */
-/* Two panels slide in from the left/right edges of the hero and meet */
-/* at the horizontal center, forming a seam with a bolted flange.     */
-/* ------------------------------------------------------------------ */
-@layer components {
-  .pipe-panel {
-    /* Note: deliberately no `left`/`right` here — each of .pipe-panel-left/
-       -right sets exactly one of those, and setting both would make the
-       box over-constrained (browsers resolve that by favoring `left`,
-       which would anchor BOTH panels to the left edge). */
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 50%;
-    transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
-    background-image:
-      repeating-linear-gradient(
-        90deg,
-        rgba(255, 255, 255, 0.08) 0px,
-        rgba(255, 255, 255, 0.08) 2px,
-        transparent 2px,
-        transparent 14px
-      ),
-      linear-gradient(90deg, #2d3748 0%, #718096 22%, #a0aec0 42%, #4a5568 60%, #2d3748 85%, #1a202c 100%);
-    box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.55), inset 0 0 4px rgba(255, 255, 255, 0.25);
-  }
-
-  .pipe-panel-left {
-    left: 0;
-    transform: translateX(-100%);
-  }
-  .pipe-panel-left.pipe-merged {
-    transform: translateX(0);
-  }
-
-  .pipe-panel-right {
-    right: 0;
-    transform: translateX(100%);
-  }
-  .pipe-panel-right.pipe-merged {
-    transform: translateX(0);
-  }
-
-  /* Raised bolted flange at the inner (seam) edge of each panel */
-  .pipe-flange {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 22px;
-    background: linear-gradient(90deg, #1a202c 0%, #4a5568 50%, #1a202c 100%);
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.6), 0 0 12px rgba(0, 0, 0, 0.4);
-  }
-  .pipe-panel-left .pipe-flange {
-    right: 0;
-  }
-  .pipe-panel-right .pipe-flange {
-    left: 0;
-  }
-
-  /* Bolt dots running down the flange */
-  .pipe-flange::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: radial-gradient(circle, #ed8936 2.5px, transparent 3px);
-    background-size: 22px 32px;
-    background-position: center;
-    opacity: 0.9;
-  }
-
-  /* Thin accent seam line exactly at the meeting point */
-  .pipe-seam-accent {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    width: 3px;
-    transform: translateX(-50%);
-    background: linear-gradient(180deg, transparent, #ed8936, transparent);
-    opacity: 0;
-    transition: opacity 400ms ease 500ms;
-  }
-  .pipe-seam-accent.pipe-merged {
-    opacity: 0.9;
-  }
-}

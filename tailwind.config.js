@@ -6,9 +6,9 @@ export default {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#1a365d',
-          light: '#1e3a5f',
-          dark: '#0f2340',
+          DEFAULT: 'rgb(var(--color-primary) / <alpha-value>)',
+          light:   'rgb(var(--color-primary-light) / <alpha-value>)',
+          dark:    'rgb(var(--color-primary-dark) / <alpha-value>)',
         },
         steel: {
           DEFAULT: '#4a5568',
@@ -16,9 +16,9 @@ export default {
           dark: '#2d3748',
         },
         accent: {
-          DEFAULT: '#dd6b20',
-          light: '#ed8936',
-          dark: '#c05621',
+          DEFAULT: 'rgb(var(--color-accent) / <alpha-value>)',
+          light:   'rgb(var(--color-accent-light) / <alpha-value>)',
+          dark:    'rgb(var(--color-accent-dark) / <alpha-value>)',
         },
         surface: {
           light: '#f7fafc',

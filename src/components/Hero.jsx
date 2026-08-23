@@ -55,9 +55,8 @@ export default function Hero() {
       {SLIDES.map((src, i) => (
         <div
           key={src}
-          className={`absolute inset-0 bg-cover bg-center transition-opacity duration-[1500ms] ease-in-out ${
-            i === slideIndex ? 'opacity-100' : 'opacity-0'
-          }`}
+          className={`absolute inset-0 bg-cover bg-center transition-opacity duration-[1500ms] ease-in-out ${i === slideIndex ? 'opacity-100' : 'opacity-0'
+            }`}
           style={{ backgroundImage: `url(${src})` }}
         />
       ))}
@@ -65,22 +64,20 @@ export default function Hero() {
       {/* Dark gradient scrim for legibility (constant darkness) */}
       <div className="absolute inset-0 bg-black/50" />
 
-      {/* Idle hint, shown until the panels join */}
+      {/* Idle hint, shown until the hero text is revealed */}
       <div
-        className={`absolute inset-0 flex flex-col items-center justify-center transition-opacity duration-300 ${
-          merged ? 'opacity-0' : 'opacity-100'
-        }`}
+        className={`absolute inset-0 flex flex-col items-center justify-center transition-opacity duration-300 ${merged ? 'opacity-0' : 'opacity-100'
+          }`}
       >
-        <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight drop-shadow-xl mb-2">
-          Yadenno Plastics PLC
+        <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight drop-shadow-xl mb-2">
+          Yadenno <span className="text-accent">Plastics</span> PLC
         </h2>
         <p className="text-white/90 text-xs sm:text-sm font-mono tracking-widest uppercase mb-6 drop-shadow-md text-center px-4">
-          UPVC Pipe Manufacturer · Tatek Industry Zone · Ethiopia
+          <span className="text-accent">UPVC Pipe Manufacturer</span> · Tatek Industry Zone · <span className="text-accent">Ethiopia</span>
         </p>
       </div>
 
-      <div className={`absolute bottom-16 left-1/2 -translate-x-1/2 z-30 flex items-center justify-center transition-opacity duration-300 ${
-          merged ? 'opacity-0' : 'opacity-100'
+      <div className={`absolute bottom-16 left-1/2 -translate-x-1/2 z-30 flex items-center justify-center transition-opacity duration-300 ${merged ? 'opacity-0' : 'opacity-100'
         }`}>
         <span className="flex items-center gap-2 text-sm font-mono uppercase tracking-widest animate-pulse">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4 text-white">
@@ -108,27 +105,30 @@ export default function Hero() {
               }, SLIDE_DURATION)
             }}
             aria-label={`Go to slide ${i + 1}`}
-            className={`transition-all duration-300 rounded-full ${
-              i === slideIndex
+            className={`transition-all duration-300 rounded-full ${i === slideIndex
                 ? 'w-8 h-2.5 bg-accent'
                 : 'w-2.5 h-2.5 bg-white/70 hover:bg-white'
-            }`}
+              }`}
           />
         ))}
       </div>
 
       {/* Revealed content, shown once the pipes meet */}
       <div
-        className={`absolute inset-0 flex items-center justify-center px-6 transition-all duration-500 ${
-          merged ? 'opacity-100 translate-y-0 delay-300 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'
-        }`}
+        className={`absolute inset-0 flex items-center justify-center px-6 transition-all duration-500 ${merged ? 'opacity-100 translate-y-0 delay-300 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'
+          }`}
       >
         <div className="max-w-3xl text-center text-white">
-          <h1 className="font-mono text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-balance drop-shadow-lg">
-            {t('hero_heading')}
+          <h1 className="font-mono text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-balance drop-shadow-lg">
+            Yadenno <span style={{ color: '#01C38D' }}>Plastics</span> PLC
           </h1>
-          <p className="mt-4 text-accent text-sm sm:text-base md:text-lg font-semibold uppercase tracking-wider drop-shadow">
-            {t('hero_tagline')}
+          <p className={`mt-4 text-sm sm:text-base md:text-lg font-semibold uppercase tracking-wider drop-shadow transition-colors duration-500 ${merged ? 'text-accent' : 'text-white'}`}>
+            {t('hero_tagline').split('BUILT FOR PRESSURE').map((part, index, parts) => (
+              <span key={`${part}-${index}`}>
+                {part}
+                {index < parts.length - 1 && <span className="text-white">BUILT FOR PRESSURE</span>}
+              </span>
+            ))}
           </p>
           <p className="mt-5 text-sm sm:text-base text-gray-100/90 leading-relaxed max-w-2xl mx-auto text-balance">
             {t('hero_description')}

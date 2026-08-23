@@ -6,7 +6,7 @@ export default function About() {
   const values = [t('about_value_1'), t('about_value_2'), t('about_value_3')]
 
   return (
-    <div>
+    <div className="pt-20">
       {/* Page header with facility image */}
       <section className="relative h-64 sm:h-80 overflow-hidden">
         <div
@@ -15,7 +15,7 @@ export default function About() {
         />
         <div className="absolute inset-0 bg-primary-dark/70" />
         <div className="relative section-container h-full flex items-center justify-center text-center">
-          <h1 className="text-3xl sm:text-4xl font-bold text-white">{t('about_title')}</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold text-white">{t('about_title')}</h1>
         </div>
       </section>
 
@@ -41,7 +41,7 @@ export default function About() {
       {/* Values */}
       <section className="bg-primary dark:bg-surface-dark">
         <div className="section-container py-16">
-          <h2 className="text-2xl font-bold text-white text-center mb-10">{t('about_values_title')}</h2>
+          <h2 className="text-xl font-bold text-white text-center mb-10">{t('about_values_title')}</h2>
           <div className="grid gap-6 sm:grid-cols-3">
             {values.map((value, i) => (
               <div

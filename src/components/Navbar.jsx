@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import logoMark from '../assets/favicon.svg'
 import { useTheme } from '../context/ThemeContext.jsx'
 import { useLanguage } from '../context/LanguageContext.jsx'
 
@@ -11,14 +10,19 @@ const LANGUAGES = [
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
-  const [langOpen, setLangOpen] = useState(false)
   const { theme, toggleTheme } = useTheme()
   const { lang, changeLanguage, t } = useLanguage()
 
   const navLinkClass = ({ isActive }) =>
-    `relative text-lg sm:text-xl font-bold transition-colors duration-200 ${isActive
+    `relative text-xl sm:text-2xl font-bold transition-colors duration-200 ${isActive
       ? 'text-white underline decoration-accent decoration-4 underline-offset-8'
       : 'text-white hover:text-gray-200'
+    }`
+
+  const mobileNavLinkClass = ({ isActive }) =>
+    `relative text-xl font-bold transition-colors duration-200 ${isActive
+      ? 'text-primary dark:text-white underline decoration-accent decoration-4 underline-offset-8'
+      : 'text-primary dark:text-white hover:text-accent dark:hover:text-gray-200'
     }`
 
   const links = [
@@ -29,15 +33,19 @@ export default function Navbar() {
   ]
 
   return (
-    <header className="absolute top-0 inset-x-0 z-50 bg-transparent transition-colors duration-300">
+    <header className="absolute top-0 inset-x-0 z-50 transition-colors duration-300"
+      style={{
+        background: 'rgba(255, 255, 255, 0.20)',
+        backdropFilter: 'blur(8px)',
+        WebkitBackdropFilter: 'blur(8px)',
+        borderBottom: '1px solid rgba(255,255,255,0.08)',
+      }}
+    >
       <nav className="w-full px-4 sm:px-8 lg:px-16 xl:px-24 mx-auto flex items-center justify-between h-20">
         {/* Logo — far left. Text wordmark "YADENNO" is the primary brand mark;
             the small svg mark from src/assets is used as an accent icon. */}
-        <Link to="/" className="flex items-center gap-2 shrink-0" onClick={() => setMobileOpen(false)}>
-          <img src={logoMark} alt="Yadenno Plastics PLC" className="w-9 h-9" />
-          <span className="font-mono text-xl sm:text-2xl font-extrabold tracking-tight text-white">
-            YADENNO<span className="text-accent"></span>
-          </span>
+        <Link to="/" className="flex items-center shrink-0" onClick={() => setMobileOpen(false)}>
+          <img src="/logo.png" alt="Yadenno Plastics PLC" className="h-14 sm:h-16 w-auto opacity-95" />
         </Link>
 
         {/* Center nav links (desktop) */}
@@ -125,7 +133,7 @@ export default function Navbar() {
               to={link.to}
               end={link.to === '/'}
               onClick={() => setMobileOpen(false)}
-              className={navLinkClass}
+              className={mobileNavLinkClass}
             >
               {link.label}
             </NavLink>

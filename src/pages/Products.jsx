@@ -6,11 +6,11 @@ export default function Products() {
   const { t } = useLanguage()
 
   return (
-    <div>
+    <div className="pt-20">
       {/* Page header */}
       <section className="bg-primary dark:bg-surface-dark border-b border-black/5 dark:border-white/10">
         <div className="section-container py-16 text-center">
-          <h1 className="text-3xl sm:text-4xl font-bold text-white mb-4">{t('products_title')}</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold text-white mb-4">{t('products_title')}</h1>
           <p className="text-gray-300 max-w-2xl mx-auto">{t('products_subtitle')}</p>
         </div>
       </section>
