@@ -8,9 +8,9 @@ import Footer from './Footer.jsx'
  */
 export default function Layout({ children }) {
   return (
-    <div className="min-h-screen flex flex-col bg-surface-light dark:bg-surface-dark transition-colors duration-300">
+    <div className="relative min-h-screen flex flex-col bg-surface-light dark:bg-surface-dark transition-colors duration-300">
       <Navbar />
-      <main className="flex-1">{children}</main>
+      <main className="relative z-10 flex-1">{children}</main>
       <Footer />
     </div>
   )
