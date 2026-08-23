@@ -2,16 +2,15 @@ import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext.jsx'
 
-const SLIDES = ['/fab2.jpg', '/fabrica.jpg', '/hero.jpg']
+const SLIDES = ['/grey.png', '/orange.png', '/hero.jpg']
 const SLIDE_DURATION = 5000
 
 /**
  * Hero section.
  *
  * - A 3-image background carousel crossfades continuously.
- * - Hovering (desktop) or tapping (touch) the section slides two
- *   metallic "pipe" panels in from the left/right edges until they
- *   meet at the center, at which point the heading/tagline/CTA fade in.
+ * - Hovering (desktop) or tapping (touch) the section reveals the
+ *   heading/tagline/CTA in the center.
  * - Leaving the hover (or tapping again on touch) reverses the animation.
  */
 export default function Hero() {
@@ -48,7 +47,7 @@ export default function Hero() {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={handleTap}
-      className="relative w-full h-[85vh] min-h-[600px] overflow-hidden select-none cursor-pointer"
+      className="relative w-full h-[86vh] min-h-[610px] overflow-hidden select-none cursor-pointer"
       aria-label="Yadenno Plastics PLC hero"
     >
       {/* Background image carousel */}
@@ -61,18 +60,18 @@ export default function Hero() {
         />
       ))}
 
-      {/* Dark gradient scrim for legibility (constant darkness) */}
-      <div className="absolute inset-0 bg-black/50" />
+      {/* Subtle scrim keeps the image bright while preserving text contrast. */}
+      <div className="absolute inset-0 bg-black/25" />
 
       {/* Idle hint, shown until the hero text is revealed */}
       <div
         className={`absolute inset-0 flex flex-col items-center justify-center transition-opacity duration-300 ${merged ? 'opacity-0' : 'opacity-100'
           }`}
       >
-        <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight drop-shadow-xl mb-2">
+        <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight drop-shadow-xl mb-3">
           Yadenno <span className="text-accent">Plastics</span> PLC
         </h2>
-        <p className="text-white/90 text-xs sm:text-sm font-mono tracking-widest uppercase mb-6 drop-shadow-md text-center px-4">
+        <p className="text-sm sm:text-base font-mono tracking-widest uppercase mb-6 drop-shadow-md text-center px-4 text-white/90">
           <span className="text-accent">UPVC Pipe Manufacturer</span> · Tatek Industry Zone · <span className="text-accent">Ethiopia</span>
         </p>
       </div>
@@ -113,33 +112,44 @@ export default function Hero() {
         ))}
       </div>
 
-      {/* Revealed content, shown once the pipes meet */}
+      {/* Revealed content, shown on hover or tap */}
       <div
         className={`absolute inset-0 flex items-center justify-center px-6 transition-all duration-500 ${merged ? 'opacity-100 translate-y-0 delay-300 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'
           }`}
       >
         <div className="max-w-3xl text-center text-white">
-          <h1 className="font-mono text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-balance drop-shadow-lg">
-            Yadenno <span style={{ color: '#01C38D' }}>Plastics</span> PLC
-          </h1>
-          <p className={`mt-4 text-sm sm:text-base md:text-lg font-semibold uppercase tracking-wider drop-shadow transition-colors duration-500 ${merged ? 'text-accent' : 'text-white'}`}>
-            {t('hero_tagline').split('BUILT FOR PRESSURE').map((part, index, parts) => (
-              <span key={`${part}-${index}`}>
-                {part}
-                {index < parts.length - 1 && <span className="text-white">BUILT FOR PRESSURE</span>}
-              </span>
-            ))}
+          <p className="text-white font-mono text-sm sm:text-base font-bold uppercase tracking-[0.24em] drop-shadow">
+            {t('hero_certified')}
           </p>
-          <p className="mt-5 text-sm sm:text-base text-gray-100/90 leading-relaxed max-w-2xl mx-auto text-balance">
+          <div className="mt-3 text-center drop-shadow-lg">
+            <h1 className="text-2xl sm:text-5xl md:text-6xl font-extrabold tracking-tight">
+              Yadenno <span className="text-accent">Plastics</span> PLC
+            </h1>
+            <p className="mt-2 text-sm sm:text-xl md:text-2xl font-semibold tracking-tight whitespace-nowrap">
+              {t('hero_tagline')}
+            </p>
+          </div>
+          <p className="mt-5 text-base sm:text-lg text-white leading-relaxed max-w-2xl mx-auto text-balance">
             {t('hero_description')}
           </p>
-          <Link
-            to="/products"
-            onClick={(e) => e.stopPropagation()}
-            className="btn-circle-border mt-8 inline-flex text-base"
-          >
-            {t('hero_cta')}
-          </Link>
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+            <Link
+              to="/products"
+              onClick={(e) => e.stopPropagation()}
+              className="btn-accent justify-center min-w-44"
+            >
+              {t('hero_cta')}
+            </Link>
+            <a
+              href="https://wa.me/251110000000"
+              target="_blank"
+              rel="noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="btn-outline justify-center min-w-44 border-accent text-white hover:bg-transparent hover:text-white"
+            >
+              {t('hero_whatsapp')}
+            </a>
+          </div>
         </div>
       </div>
     </section>

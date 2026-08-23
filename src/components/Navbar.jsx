@@ -45,7 +45,7 @@ export default function Navbar() {
         {/* Logo — far left. Text wordmark "YADENNO" is the primary brand mark;
             the small svg mark from src/assets is used as an accent icon. */}
         <Link to="/" className="flex items-center shrink-0" onClick={() => setMobileOpen(false)}>
-          <img src="/logo.png" alt="Yadenno Plastics PLC" className="h-14 sm:h-16 w-auto opacity-95" />
+          <img src="/logo.png" alt="Yadenno Plastics PLC" className="h-16 sm:h-[4.5rem] w-auto opacity-95" />
         </Link>
 
         {/* Center nav links (desktop) */}

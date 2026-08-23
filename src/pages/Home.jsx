@@ -15,6 +15,26 @@ export default function Home() {
     <div>
       <Hero />
 
+      {/* Key product specifications */}
+      <section className="bg-white dark:bg-surface-dark border-b border-black/5 dark:border-white/10 mt-8 sm:mt-12">
+        <div className="section-container py-8 sm:py-10">
+          <div className="grid grid-cols-1 sm:grid-cols-3 overflow-hidden border-2 border-accent rounded-2xl shadow-sm">
+            <div className="flex flex-col items-center justify-center gap-1 px-4 py-6 sm:py-8 text-center border-b sm:border-b-0 sm:border-r border-accent hover:bg-accent/5 transition-colors duration-300">
+              <span className="text-2xl sm:text-3xl font-extrabold tracking-tight text-primary dark:text-white">50–250</span>
+              <span className="text-xs font-mono font-bold uppercase tracking-widest text-accent">mm diameter</span>
+            </div>
+            <div className="flex flex-col items-center justify-center gap-1 px-4 py-6 sm:py-8 text-center border-b sm:border-b-0 sm:border-r border-accent hover:bg-accent/5 transition-colors duration-300">
+              <span className="text-2xl sm:text-3xl font-extrabold tracking-tight text-primary dark:text-white">PN4–PN16</span>
+              <span className="text-xs font-mono font-bold uppercase tracking-widest text-accent">pressure classes</span>
+            </div>
+            <div className="flex flex-col items-center justify-center gap-1 px-4 py-6 sm:py-8 text-center hover:bg-accent/5 transition-colors duration-300">
+              <span className="text-2xl sm:text-3xl font-extrabold tracking-tight text-primary dark:text-white">ES ISO 1452-1 &amp; 2</span>
+              <span className="text-xs font-mono font-bold uppercase tracking-widest text-accent">quality standard</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Why Yadenno */}
       <section className="section-container py-24">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">

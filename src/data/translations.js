@@ -11,10 +11,12 @@ export const translations = {
 
     // Hero
     hero_heading: 'Yadenno Plastics PLC',
-    hero_tagline: 'PIPE SYSTEMS BUILT FOR PRESSURE, NOT COMPROMISE.',
+    hero_tagline: 'Strong pipes. Reliable projects.',
+    hero_certified: 'Certified',
     hero_description:
-      'Yadenno Plastics PLC manufactures UPVC pressure and drainage pipe from our Tatek Industry Zone facility — engineered to PN4 through PN16 pressure classes across a 50–250mm diameter range.',
-    hero_cta: 'View Our Pipe Range →',
+      'UPVC pressure and sewerage pipes manufactured at Tatek Industry Zone for water, irrigation and infrastructure projects.',
+    hero_cta: 'View Our Pipes',
+    hero_whatsapp: 'WhatsApp Sales',
     hero_hint: 'Hover to reveal',
     hero_hint_mobile: 'Tap to reveal',
 
@@ -81,10 +83,12 @@ export const translations = {
     nav_quote: 'የዋጋ ማቅረቢያ ይጠይቁ',
 
     hero_heading: 'ያደኖ ፕላስቲክስ ኃ.የተ.የግ.ማ',
-    hero_tagline: 'ለጫና የተገነቡ ቧንቧ ስርዓቶች፣ ምንም ማወላወል የለም።',
+    hero_tagline: 'ጠንካራ ቧንቧዎች። አስተማማኝ ፕሮጀክቶች።',
+    hero_certified: 'የተረጋገጠ',
     hero_description:
-      'ያደኖ ፕላስቲክስ ኃ.የተ.የግ.ማ በተከት ኢንዱስትሪ ዞን ፋብሪካችን UPVC የጫና እና የፍሳሽ ቧንቧዎችን ያመርታል — ከPN4 እስከ PN16 የጫና ደረጃዎች እና ከ50–250ሚሜ ዲያሜትር ክልል ጋር የተነደፉ።',
-    hero_cta: 'የቧንቧ ምርቶቻችንን ይመልከቱ →',
+      'በተከት ኢንዱስትሪ ዞን ለውሃ፣ ለመስኖ እና ለመሠረተ ልማት ፕሮጀክቶች የሚመረቱ የUPVC የጫና እና የፍሳሽ ቧንቧዎች።',
+    hero_cta: 'ቧንቧዎቻችንን ይመልከቱ',
+    hero_whatsapp: 'የWhatsApp ሽያጭ',
     hero_hint: 'ለማየት ይሸብቡ',
     hero_hint_mobile: 'ለማየት ይንኩ',
 
