@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import { useTheme } from '../context/ThemeContext.jsx'
 import { useLanguage } from '../context/LanguageContext.jsx'
 
 const LANGUAGES = [
@@ -10,7 +9,6 @@ const LANGUAGES = [
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
-  const { theme, toggleTheme } = useTheme()
   const { lang, changeLanguage, t } = useLanguage()
 
   const navLinkClass = ({ isActive }) =>
@@ -21,8 +19,8 @@ export default function Navbar() {
 
   const mobileNavLinkClass = ({ isActive }) =>
     `relative text-xl font-bold transition-colors duration-200 ${isActive
-      ? 'text-primary dark:text-white underline decoration-accent decoration-4 underline-offset-8'
-      : 'text-primary dark:text-white hover:text-accent dark:hover:text-gray-200'
+      ? 'text-primary underline decoration-accent decoration-4 underline-offset-8'
+      : 'text-primary hover:text-accent'
     }`
 
   const links = [
@@ -65,33 +63,6 @@ export default function Navbar() {
             {t('nav_quote')}
           </Link>
 
-          {/* Dark / light toggle */}
-          <button
-            type="button"
-            onClick={toggleTheme}
-            aria-label="Toggle dark mode"
-            className="relative w-10 h-10 flex items-center justify-center rounded-full text-white hover:bg-white/10 transition-colors duration-300"
-          >
-            <span
-              className={`absolute inset-0 flex items-center justify-center transition-all duration-500 ${theme === 'dark' ? 'opacity-0 rotate-90 scale-50' : 'opacity-100 rotate-0 scale-100'
-                }`}
-            >
-              {/* Sun icon */}
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-                <path d="M12 4a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V5a1 1 0 0 1 1-1Zm0 5a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm7 3a1 1 0 0 1-1 1h-1a1 1 0 1 1 0-2h1a1 1 0 0 1 1 1ZM6 12a1 1 0 0 1-1 1H4a1 1 0 1 1 0-2h1a1 1 0 0 1 1 1Zm11.31-5.31a1 1 0 0 1 0 1.42l-.7.7a1 1 0 1 1-1.42-1.42l.7-.7a1 1 0 0 1 1.42 0ZM7.81 16.19a1 1 0 0 1 0 1.42l-.7.7a1 1 0 1 1-1.42-1.42l.7-.7a1 1 0 0 1 1.42 0ZM12 18a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1Zm5.31 1.31a1 1 0 0 1-1.42 0l-.7-.7a1 1 0 1 1 1.42-1.42l.7.7a1 1 0 0 1 0 1.42ZM6.39 6.39a1 1 0 0 1-1.42 0l-.7-.7A1 1 0 1 1 5.7 4.27l.7.7a1 1 0 0 1 0 1.42Z" />
-              </svg>
-            </span>
-            <span
-              className={`absolute inset-0 flex items-center justify-center transition-all duration-500 ${theme === 'dark' ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 -rotate-90 scale-50'
-                }`}
-            >
-              {/* Moon icon */}
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-                <path d="M20.354 15.354A9 9 0 0 1 8.646 3.646a9.003 9.003 0 1 0 11.708 11.708Z" />
-              </svg>
-            </span>
-          </button>
-
           {/* Language switch */}
           <button
             type="button"
@@ -123,7 +94,7 @@ export default function Navbar() {
 
       {/* Mobile menu panel */}
       <div
-        className={`lg:hidden overflow-hidden transition-all duration-300 bg-white dark:bg-surface-dark border-t border-black/5 dark:border-white/10 ${mobileOpen ? 'max-h-[28rem]' : 'max-h-0'
+        className={`lg:hidden overflow-hidden transition-all duration-300 bg-white border-t border-black/5 ${mobileOpen ? 'max-h-[28rem]' : 'max-h-0'
           }`}
       >
         <div className="section-container py-4 flex flex-col gap-4">
@@ -139,19 +110,11 @@ export default function Navbar() {
             </NavLink>
           ))}
 
-          <Link to="/contact" onClick={() => setMobileOpen(false)} className="border-2 border-accent text-primary dark:text-white px-5 py-2 rounded-md font-medium text-center w-full">
+          <Link to="/contact" onClick={() => setMobileOpen(false)} className="border-2 border-accent text-primary px-5 py-2 rounded-md font-medium text-center w-full">
             {t('nav_quote')}
           </Link>
 
-          <div className="flex items-center justify-between pt-2 border-t border-black/5 dark:border-white/10">
-            <button
-              type="button"
-              onClick={toggleTheme}
-              className="flex items-center gap-2 text-sm font-medium text-primary dark:text-gray-200"
-            >
-              {theme === 'dark' ? '🌙 Dark' : '☀️ Light'}
-            </button>
-
+          <div className="flex justify-end pt-2 border-t border-black/5">
             <div className="flex gap-2">
               {LANGUAGES.map((l) => (
                 <button
@@ -160,7 +123,7 @@ export default function Navbar() {
                   onClick={() => changeLanguage(l.code)}
                   className={`px-3 py-1.5 rounded-md text-xs font-mono font-semibold border transition-colors duration-200 ${lang === l.code
                     ? 'bg-accent text-white border-accent'
-                    : 'border-primary/20 dark:border-white/20 text-primary dark:text-gray-200'
+                    : 'border-primary/20 text-primary'
                     }`}
                 >
                   {l.label}
