@@ -21,7 +21,7 @@ export default function Products() {
           {products.map((product) => (
             <div
               key={product.id}
-              className="flex flex-col p-6 rounded-lg border border-black/5 dark:border-white/10 bg-white dark:bg-white/5 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+              className="flex flex-col p-6 rounded-sm border border-black/10 dark:border-white/10 bg-white dark:bg-white/5 hover:border-accent transition-colors duration-300"
             >
               <div className="text-4xl mb-4">{product.icon}</div>
               <h3 className="font-semibold text-lg text-primary dark:text-white mb-2">{product.nameKey}</h3>

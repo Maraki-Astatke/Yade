@@ -47,7 +47,7 @@ export default function Hero() {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={handleTap}
-      className="relative w-full h-[86vh] min-h-[610px] overflow-hidden select-none cursor-pointer"
+      className="relative w-full h-[90vh] min-h-[650px] overflow-hidden select-none cursor-pointer"
       aria-label="Yadenno Plastics PLC hero"
     >
       {/* Background image carousel */}
@@ -62,16 +62,17 @@ export default function Hero() {
 
       {/* Dark gradient scrim for legibility (constant darkness) */}
       <div className="absolute inset-0 bg-black/50" />
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/70 via-primary/20 to-transparent" />
 
       {/* Idle hint, shown until the hero text is revealed */}
       <div
         className={`absolute inset-0 flex flex-col items-center justify-center transition-opacity duration-300 ${merged ? 'opacity-0' : 'opacity-100'
           }`}
       >
-        <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight drop-shadow-xl mb-3">
+        <h2 className="text-4xl sm:text-6xl font-extrabold text-white tracking-tight drop-shadow-xl mb-4">
           {t('hero_brand_prefix')} <span className="text-accent">{t('hero_brand_plastics')}</span> {t('hero_brand_suffix')}
         </h2>
-        <p className="text-sm sm:text-base font-mono tracking-widest uppercase mb-6 drop-shadow-md text-center px-4 text-white/90">
+        <p className="text-xs sm:text-sm font-mono tracking-widest uppercase mb-6 drop-shadow-md text-center px-4 text-white/90">
           <span className="text-accent">{t('hero_manufacturer')}</span> · {t('hero_location')} · <span className="text-accent">{t('hero_country')}</span>
         </p>
       </div>
@@ -111,29 +112,29 @@ export default function Hero() {
         ))}
       </div>
 
-      {/* Revealed content, shown once the pipes meet */}
+      {/* Revealed content, shown on hover or tap */}
       <div
-        className={`absolute inset-0 flex items-center justify-center px-6 transition-all duration-500 ${merged ? 'opacity-100 translate-y-0 delay-300 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'
+        className={`absolute inset-0 z-20 flex items-center justify-center px-6 transition-all duration-500 ${merged ? 'opacity-100 translate-y-0 delay-300 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'
           }`}
       >
-        <div className="max-w-3xl text-center text-white">
+        <div className="max-w-4xl text-center text-white">
           <p className="mb-4 text-white text-sm sm:text-base font-normal uppercase tracking-wider drop-shadow">
             {t('hero_certified')}
           </p>
-          <h1 className="font-mono text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-balance drop-shadow-lg">
+          <h1 className="font-mono text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-balance drop-shadow-lg">
             {t('hero_brand_prefix')} <span className="text-accent">{t('hero_brand_plastics')}</span> {t('hero_brand_suffix')}
           </h1>
           <p className="mt-4 text-base sm:text-lg md:text-xl font-normal tracking-tight text-white drop-shadow">
             {t('hero_tagline')}
           </p>
-          <p className="mt-3 text-sm sm:text-base text-gray-100/90 leading-relaxed max-w-2xl mx-auto text-balance">
+          <p className="mt-4 text-sm sm:text-base text-gray-100/90 leading-relaxed max-w-xl mx-auto text-balance">
             {t('hero_description')}
           </p>
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               to="/products"
               onClick={(e) => e.stopPropagation()}
-              className="btn-circle-border text-base"
+              className="btn-circle-border min-w-44 justify-center text-base shadow-xl shadow-black/20"
             >
               {t('hero_cta')}
             </Link>
@@ -142,7 +143,7 @@ export default function Hero() {
               target="_blank"
               rel="noreferrer"
               onClick={(e) => e.stopPropagation()}
-              className="inline-flex items-center justify-center rounded-full border-2 border-accent px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-accent"
+              className="inline-flex min-w-44 items-center justify-center rounded-full border-2 border-accent bg-primary/35 px-6 py-3 text-base font-semibold text-white shadow-xl shadow-black/20 transition-colors hover:bg-accent"
             >
               {t('hero_whatsapp')}
             </a>

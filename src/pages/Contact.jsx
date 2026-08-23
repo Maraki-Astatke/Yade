@@ -55,7 +55,7 @@ export default function Contact() {
         {/* Quotation form */}
         <form
           onSubmit={handleSubmit}
-          className="grid h-full grid-cols-1 sm:grid-cols-2 gap-5 rounded-2xl border-2 border-accent/30 bg-surface-light p-6 sm:p-8 shadow-lg"
+          className="grid h-full grid-cols-1 sm:grid-cols-2 gap-5 rounded-sm border-2 border-accent/30 bg-surface-light p-6 sm:p-8"
         >
           {[
             { id: 'name', label: t('home_full_name'), type: 'text', placeholder: t('home_full_name_placeholder') },

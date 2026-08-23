@@ -16,9 +16,9 @@ export default function Home() {
       <Hero />
 
       {/* Key product specifications */}
-      <section className="bg-white dark:bg-surface-dark border-b border-black/5 dark:border-white/10 mt-8 sm:mt-12">
-        <div className="section-container py-8 sm:py-10">
-          <div className="grid grid-cols-1 sm:grid-cols-4 overflow-hidden border-2 border-accent rounded-2xl shadow-sm">
+      <section className="bg-white dark:bg-surface-dark border-b border-black/5 dark:border-white/10 mt-16 sm:mt-20">
+        <div className="section-container py-10 sm:py-12">
+          <div className="grid grid-cols-1 sm:grid-cols-4 overflow-hidden border-2 border-accent rounded-sm">
             <div className="flex flex-col items-center justify-center gap-1 px-4 py-6 sm:py-8 text-center border-b sm:border-b-0 sm:border-r border-accent hover:bg-accent/5 transition-colors duration-300">
               <span className="text-xl sm:text-2xl font-medium tracking-tight text-primary dark:text-white">50–250</span>
               <span className="text-xs font-mono font-bold uppercase tracking-widest text-accent">{t('home_spec_diameter')}</span>
@@ -40,11 +40,11 @@ export default function Home() {
       </section>
 
       {/* Why Yadenno */}
-      <section className="section-container py-20">
+      <section className="section-container py-24">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-start">
           {/* Left Column */}
           <div className="space-y-6">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-primary dark:text-white tracking-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-primary dark:text-white tracking-tight">
               {t('home_why_title')}
             </h2>
 
@@ -57,8 +57,8 @@ export default function Home() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-bold text-xl sm:text-2xl text-primary dark:text-white">{reason.title}</h3>
-                    <p className="text-base sm:text-lg text-steel dark:text-gray-400 mt-1 leading-relaxed whitespace-pre-line">{reason.desc}</p>
+                    <h3 className="font-bold text-lg sm:text-xl text-primary dark:text-white">{reason.title}</h3>
+                    <p className="text-sm sm:text-base text-steel dark:text-gray-400 mt-1 leading-relaxed whitespace-pre-line">{reason.desc}</p>
                   </div>
                 </li>
               ))}
@@ -73,7 +73,7 @@ export default function Home() {
           </div>
 
           {/* Right Column - Full flexible mix image */}
-          <div className="relative h-[420px] sm:h-[520px] w-full mt-2 lg:mt-0 overflow-hidden rounded-3xl">
+          <div className="relative h-[420px] sm:h-[520px] w-full mt-2 lg:mt-0 overflow-hidden rounded-sm">
             <img
               src="/mix.png"
               alt="Yadenno Plastics products"
@@ -84,27 +84,18 @@ export default function Home() {
       </section>
 
       {/* ── Product Section ── */}
-      <section className="py-14" style={{ backgroundColor: '#132D46' }}>
+      <section className="py-20" style={{ backgroundColor: '#132D46' }}>
         <div className="section-container">
-          <div className="flex flex-col items-center text-center gap-4 mb-8">
+          <div className="flex flex-col items-center text-center gap-5 mb-10">
             <div>
               <p className="text-accent font-mono text-sm font-bold uppercase tracking-widest mb-2">{t('home_products_eyebrow')}</p>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-tight">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
                 {t('home_products_title')}
               </h2>
-              <p className="text-gray-300 mt-4 max-w-2xl mx-auto text-base leading-relaxed text-center">
+              <p className="text-gray-300 mt-4 max-w-xl mx-auto text-sm sm:text-base leading-relaxed text-center">
                 {t('home_products_desc')}
               </p>
             </div>
-            <Link
-              to="/products"
-              className="inline-flex items-center gap-2 shrink-0 bg-accent hover:bg-accent-light text-white font-semibold px-6 py-3 rounded-md transition-all duration-300 shadow-lg shadow-accent/20 hover:-translate-y-0.5"
-            >
-              {t('home_see_all')}
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor" className="w-4 h-4">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-              </svg>
-            </Link>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6 items-stretch">
@@ -131,7 +122,7 @@ export default function Home() {
                 specification: t('home_product_conduit_spec'),
               },
             ].map((product) => (
-              <article key={product.title} className="flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/5 text-center shadow-sm hover:border-accent/60 hover:shadow-xl transition-all duration-300 group">
+              <article key={product.title} className="flex flex-col overflow-hidden rounded-sm border border-white/10 bg-white/5 text-center hover:border-accent/60 transition-colors duration-300 group">
                 <div className="h-48 sm:h-56 flex items-center justify-center p-2 overflow-hidden">
                   <img
                     src={product.image}
@@ -140,9 +131,9 @@ export default function Home() {
                   />
                 </div>
                 <div className="flex flex-col flex-1 p-4 gap-2 opacity-100 translate-y-0 group-hover:-translate-y-1 transition-transform duration-500 ease-out">
-                  <h3 className="text-xl font-extrabold text-white">{product.title}</h3>
-                  <p className="text-gray-300 text-sm leading-relaxed">{product.description}</p>
-                  <p className="text-white font-semibold text-sm">{product.specification}</p>
+                  <h3 className="text-lg sm:text-xl font-extrabold text-white">{product.title}</h3>
+                  <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">{product.description}</p>
+                  <p className="text-white font-semibold text-xs sm:text-sm">{product.specification}</p>
                   <Link to="/contact" className="inline-flex items-center justify-center gap-2 text-sm font-semibold text-accent hover:text-accent-light transition-colors">
                     {t('home_request_specs')}
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor" className="w-4 h-4">
@@ -153,6 +144,18 @@ export default function Home() {
               </article>
             ))}
           </div>
+
+          <div className="mt-8 flex justify-center">
+            <Link
+              to="/products"
+              className="inline-flex items-center gap-2 border-2 border-white bg-transparent text-white font-semibold px-6 py-3 rounded-md transition-all duration-300 hover:bg-accent hover:border-accent hover:-translate-y-0.5"
+            >
+              {t('home_see_all')}
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor" className="w-4 h-4">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+              </svg>
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -162,11 +165,11 @@ export default function Home() {
           <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-12 lg:gap-20 items-start">
             <div>
               <p className="text-accent font-mono text-sm font-bold uppercase tracking-widest mb-3">{t('home_quality_eyebrow')}</p>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-primary tracking-tight leading-tight">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-primary tracking-tight leading-tight">
                 {t('home_quality_title')}
                 <span className="block text-accent">{t('home_quality_title_accent')}</span>
               </h2>
-              <p className="text-steel mt-5 text-lg leading-relaxed max-w-md">
+              <p className="text-steel mt-5 text-base leading-relaxed max-w-md">
                 {t('home_quality_desc')}
               </p>
             </div>
@@ -199,11 +202,11 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div>
               <p className="text-accent font-mono text-sm font-bold uppercase tracking-widest mb-3">{t('home_applications_eyebrow')}</p>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
                 {t('home_applications_title')}
                 <span className="block text-accent">{t('home_applications_title_accent')}</span>
               </h2>
-              <p className="text-gray-300 mt-5 text-lg leading-relaxed max-w-xl">
+              <p className="text-gray-300 mt-5 text-base leading-relaxed max-w-xl">
                 {t('home_applications_desc')}
               </p>
 
@@ -216,7 +219,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="border-l-4 border-accent bg-white p-8 sm:p-10 shadow-sm">
+            <div className="border-l-4 border-accent bg-white p-8 sm:p-10">
               <p className="text-sm font-mono font-bold uppercase tracking-widest text-accent">{t('home_factory_from')}</p>
               <h3 className="mt-3 text-2xl sm:text-3xl font-extrabold text-primary">{t('home_factory_location')}</h3>
               <p className="text-xl text-steel">{t('home_factory_city')}</p>
@@ -244,11 +247,11 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-stretch">
             <div className="flex flex-col lg:py-8">
               <p className="text-accent font-mono text-sm font-bold uppercase tracking-widest mb-3">{t('home_quote_eyebrow')}</p>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-primary tracking-tight leading-tight">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-primary tracking-tight leading-tight">
                 {t('home_quote_title')}
                 <span className="block text-accent">{t('home_quote_title_accent')}</span>
               </h2>
-              <p className="mt-5 max-w-lg text-lg leading-relaxed text-steel">
+              <p className="mt-5 max-w-lg text-base leading-relaxed text-steel">
                 {t('home_quote_desc')}
               </p>
 
@@ -266,7 +269,7 @@ export default function Home() {
 
             <form
               onSubmit={(event) => event.preventDefault()}
-              className="grid h-full grid-cols-1 sm:grid-cols-2 gap-5 rounded-2xl border-2 border-accent/30 bg-surface-light p-6 sm:p-8 shadow-lg"
+              className="grid h-full grid-cols-1 sm:grid-cols-2 gap-5 rounded-sm border-2 border-accent/30 bg-surface-light p-6 sm:p-8"
             >
               {[
                 { id: 'quote-name', label: t('home_full_name'), type: 'text', placeholder: t('home_full_name_placeholder') },
@@ -304,9 +307,9 @@ export default function Home() {
       </section>
 
       <section className="bg-primary dark:bg-surface-dark border-t border-black/5 dark:border-white/10 mb-4">
-        <div className="section-container py-16 text-center">
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-3">{t('home_cta_title')}</h2>
-          <p className="text-gray-300 max-w-xl mx-auto mb-8">{t('home_cta_desc')}</p>
+        <div className="section-container py-20 text-center">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">{t('home_cta_title')}</h2>
+          <p className="text-sm sm:text-base text-gray-300 max-w-xl mx-auto mb-8">{t('home_cta_desc')}</p>
           <Link to="/contact" className="btn-accent">
             {t('home_cta_button')}
           </Link>

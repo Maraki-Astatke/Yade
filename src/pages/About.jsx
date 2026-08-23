@@ -28,11 +28,11 @@ export default function About() {
 
       {/* Mission + Facility */}
       <section className="section-container pb-16 grid gap-10 sm:grid-cols-2">
-        <div className="p-6 rounded-lg bg-white dark:bg-white/5 border border-black/5 dark:border-white/10 shadow-sm">
+        <div className="p-6 rounded-sm bg-white dark:bg-white/5 border border-black/10 dark:border-white/10">
           <h2 className="text-xl font-semibold text-primary dark:text-white mb-3">{t('about_mission_title')}</h2>
           <p className="text-sm text-steel dark:text-gray-400 leading-relaxed">{t('about_mission_desc')}</p>
         </div>
-        <div className="p-6 rounded-lg bg-white dark:bg-white/5 border border-black/5 dark:border-white/10 shadow-sm">
+        <div className="p-6 rounded-sm bg-white dark:bg-white/5 border border-black/10 dark:border-white/10">
           <h2 className="text-xl font-semibold text-primary dark:text-white mb-3">{t('about_facility_title')}</h2>
           <p className="text-sm text-steel dark:text-gray-400 leading-relaxed">{t('about_facility_desc')}</p>
         </div>
@@ -46,7 +46,7 @@ export default function About() {
             {values.map((value, i) => (
               <div
                 key={value}
-                className="flex items-start gap-3 p-5 rounded-lg bg-white/5 border border-white/10"
+                className="flex items-start gap-3 p-5 rounded-sm bg-white/5 border border-white/10"
               >
                 <span className="text-accent font-mono font-bold text-lg">{String(i + 1).padStart(2, '0')}</span>
                 <p className="text-gray-200 text-sm leading-relaxed">{value}</p>
