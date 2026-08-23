@@ -55,72 +55,31 @@ export default function Contact() {
         {/* Quotation form */}
         <form
           onSubmit={handleSubmit}
-          className="space-y-5 p-6 sm:p-8 rounded-2xl bg-white dark:bg-white/5 border-2 border-accent/30 shadow-lg"
+          className="grid h-full grid-cols-1 sm:grid-cols-2 gap-5 rounded-2xl border-2 border-accent/30 bg-surface-light p-6 sm:p-8 shadow-lg"
         >
-          <div>
-            <label htmlFor="name" className="block text-sm font-medium text-primary dark:text-gray-200 mb-1.5">
-              Full name
-            </label>
-            <input
-              id="name"
-              name="name"
-              type="text"
-              required
-              value={form.name}
-              onChange={handleChange}
-              className="w-full px-4 py-2.5 rounded-md border border-black/10 dark:border-white/15 bg-white dark:bg-surface-dark text-primary dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-accent transition-shadow"
-            />
-          </div>
+          {[
+            { id: 'name', label: t('home_full_name'), type: 'text', placeholder: t('home_full_name_placeholder') },
+            { id: 'phone', label: t('home_phone_number'), type: 'tel', placeholder: '+251 9XX XXX XXX' },
+            { id: 'diameter', label: t('home_pipe_diameter'), type: 'text', placeholder: t('home_pipe_diameter_placeholder') },
+            { id: 'pnClass', label: t('home_pn_class'), type: 'text', placeholder: t('home_pn_class_placeholder') },
+          ].map((field) => (
+            <div key={field.id}>
+              <label htmlFor={field.id} className="mb-1.5 block text-sm font-medium text-primary">{field.label}</label>
+              <input
+                id={field.id}
+                name={field.id}
+                type={field.type}
+                required
+                placeholder={field.placeholder}
+                value={form[field.id]}
+                onChange={handleChange}
+                className="w-full rounded-md border border-black/10 bg-white px-4 py-2.5 text-primary focus:outline-none focus:ring-2 focus:ring-accent"
+              />
+            </div>
+          ))}
 
-          <div>
-            <label htmlFor="phone" className="block text-sm font-medium text-primary dark:text-gray-200 mb-1.5">
-              Phone number
-            </label>
-            <input
-              id="phone"
-              name="phone"
-              type="tel"
-              required
-              value={form.phone}
-              onChange={handleChange}
-              className="w-full px-4 py-2.5 rounded-md border border-black/10 dark:border-white/15 bg-white dark:bg-surface-dark text-primary dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-accent transition-shadow"
-            />
-          </div>
-
-          <div>
-            <label htmlFor="diameter" className="block text-sm font-medium text-primary dark:text-gray-200 mb-1.5">
-              Pipe diameter
-            </label>
-            <input
-              id="diameter"
-              name="diameter"
-              type="text"
-              required
-              value={form.diameter}
-              onChange={handleChange}
-              className="w-full px-4 py-2.5 rounded-md border border-black/10 dark:border-white/15 bg-white dark:bg-surface-dark text-primary dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-accent transition-shadow"
-            />
-          </div>
-
-          <div>
-            <label htmlFor="pnClass" className="block text-sm font-medium text-primary dark:text-gray-200 mb-1.5">
-              PN class
-            </label>
-            <input
-              id="pnClass"
-              name="pnClass"
-              type="text"
-              required
-              value={form.pnClass}
-              onChange={handleChange}
-              className="w-full px-4 py-2.5 rounded-md border border-black/10 dark:border-white/15 bg-white dark:bg-surface-dark text-primary dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-accent transition-shadow resize-none"
-            />
-          </div>
-
-          <div>
-            <label htmlFor="orderDetails" className="block text-sm font-medium text-primary dark:text-gray-200 mb-1.5">
-              Order details
-            </label>
+          <div className="sm:col-span-2">
+            <label htmlFor="orderDetails" className="mb-1.5 block text-sm font-medium text-primary">{t('home_order_details')}</label>
             <textarea
               id="orderDetails"
               name="orderDetails"
@@ -128,12 +87,12 @@ export default function Contact() {
               required
               value={form.orderDetails}
               onChange={handleChange}
-              className="w-full px-4 py-2.5 rounded-md border border-black/10 dark:border-white/15 bg-white dark:bg-surface-dark text-primary dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-accent transition-shadow resize-none"
+              className="w-full resize-none rounded-md border border-black/10 bg-white px-4 py-2.5 text-primary focus:outline-none focus:ring-2 focus:ring-accent"
             />
           </div>
 
-          <button type="submit" className="btn-accent w-full justify-center">
-            Send quotation request
+          <button type="submit" className="btn-accent w-full justify-center sm:col-span-2">
+            {t('home_send_quote')}
           </button>
 
           {submitted && (
@@ -142,7 +101,7 @@ export default function Contact() {
             </p>
           )}
 
-          <p className="text-center text-sm text-steel dark:text-gray-400 pt-1">For the fastest response, contact us directly on WhatsApp.</p>
+          <p className="text-center text-sm text-steel sm:col-span-2 pt-1">{t('home_quote_note')}</p>
         </form>
       </section>
     </div>

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext.jsx'
 
 const LANGUAGES = [
@@ -10,11 +10,13 @@ const LANGUAGES = [
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const { lang, changeLanguage, t } = useLanguage()
+  const { pathname } = useLocation()
+  const isHome = pathname === '/'
 
   const navLinkClass = ({ isActive }) =>
     `relative text-xl sm:text-2xl font-bold transition-colors duration-200 ${isActive
-      ? 'text-white underline decoration-accent decoration-4 underline-offset-8'
-      : 'text-white hover:text-gray-200'
+      ? `${isHome ? 'text-white' : 'text-primary'} underline decoration-accent decoration-4 underline-offset-8`
+      : `${isHome ? 'text-white hover:text-gray-200' : 'text-primary hover:text-primary/80'}`
     }`
 
   const mobileNavLinkClass = ({ isActive }) =>
@@ -59,7 +61,7 @@ export default function Navbar() {
 
         {/* Right side controls */}
         <div className="hidden lg:flex items-center gap-4">
-          <Link to="/contact" className="border-2 border-accent text-white px-5 py-2 rounded-md font-medium hover:bg-accent hover:text-white transition-colors">
+          <Link to="/contact" className={`border-2 border-accent px-5 py-2 rounded-md font-medium hover:bg-accent hover:text-white transition-colors ${isHome ? 'text-white' : 'text-primary'}`}>
             {t('nav_quote')}
           </Link>
 
@@ -67,11 +69,11 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => changeLanguage(lang === 'en' ? 'am' : 'en')}
-            className="flex items-center gap-1 p-1 rounded-full text-sm font-mono font-bold bg-white/10 hover:bg-white/20 transition-colors duration-300"
+            className={`flex items-center gap-1 p-1 rounded-full text-sm font-mono font-bold bg-white/10 transition-colors duration-300 ${isHome ? 'text-white hover:bg-white/20' : 'text-primary hover:bg-primary/10'}`}
             aria-label="Toggle language"
           >
-            <span className={`px-2.5 py-1 rounded-full transition-colors ${lang === 'en' ? 'bg-white text-primary shadow-sm' : 'text-white/60'}`}>EN</span>
-            <span className={`px-2.5 py-1 rounded-full transition-colors ${lang === 'am' ? 'bg-white text-primary shadow-sm' : 'text-white/60'}`}>AM</span>
+            <span className={`px-2.5 py-1 rounded-full transition-colors ${lang === 'en' ? `${isHome ? 'bg-white text-primary' : 'bg-primary text-white'} shadow-sm` : isHome ? 'text-white/70' : 'text-primary/70'}`}>EN</span>
+            <span className={`px-2.5 py-1 rounded-full transition-colors ${lang === 'am' ? `${isHome ? 'bg-white text-primary' : 'bg-primary text-white'} shadow-sm` : isHome ? 'text-white/70' : 'text-primary/70'}`}>AM</span>
           </button>
         </div>
 
