@@ -117,13 +117,13 @@ export default function Hero() {
           }`}
       >
         <div className="max-w-3xl text-center text-white">
-          <p className="mb-4 text-white text-sm sm:text-base font-bold uppercase tracking-wider drop-shadow">
+          <p className="mb-4 text-white text-sm sm:text-base font-normal uppercase tracking-wider drop-shadow">
             {t('hero_certified')}
           </p>
           <h1 className="font-mono text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-balance drop-shadow-lg">
             {t('hero_brand_prefix')} <span className="text-accent">{t('hero_brand_plastics')}</span> {t('hero_brand_suffix')}
           </h1>
-          <p className="mt-4 text-lg sm:text-xl md:text-2xl font-medium tracking-tight text-white drop-shadow">
+          <p className="mt-4 text-base sm:text-lg md:text-xl font-normal tracking-tight text-white drop-shadow">
             {t('hero_tagline')}
           </p>
           <p className="mt-3 text-sm sm:text-base text-gray-100/90 leading-relaxed max-w-2xl mx-auto text-balance">
