@@ -118,7 +118,7 @@ export default function Home() {
                 featured: true,
               },
               {
-                image: '/pipe.png',
+                image: '/circut.png',
                 alt: 'UPVC Electrical Conduit',
                 title: t('home_product_conduit_title'),
                 description: t('home_product_conduit_desc'),

@@ -1,9 +1,8 @@
 // UPVC pipe product line data used by the Products page.
-// Icons are simple emoji stand-ins so no extra icon library is required.
 export const products = [
   {
     id: 'pressure-pipe',
-    icon: '🚿',
+    image: '/grey-bg.png',
     nameKey: 'UPVC Pressure Pipe',
     pressure: 'PN10 – PN16',
     diameter: '50mm – 200mm',
@@ -13,7 +12,7 @@ export const products = [
   },
   {
     id: 'drainage-pipe',
-    icon: '🌊',
+    image: '/orange-bg.png',
     nameKey: 'UPVC Drainage Pipe',
     pressure: 'PN4 – PN6',
     diameter: '75mm – 250mm',
@@ -23,7 +22,7 @@ export const products = [
   },
   {
     id: 'irrigation-pipe',
-    icon: '🌱',
+    image: '/image2.png',
     nameKey: 'UPVC Irrigation Pipe',
     pressure: 'PN6 – PN10',
     diameter: '50mm – 160mm',
@@ -33,7 +32,7 @@ export const products = [
   },
   {
     id: 'conduit-pipe',
-    icon: '⚡',
+    image: '/circut.png',
     nameKey: 'UPVC Electrical Conduit',
     pressure: 'N/A',
     diameter: '20mm – 110mm',
@@ -43,7 +42,7 @@ export const products = [
   },
   {
     id: 'fittings',
-    icon: '🔧',
+    image: '/pipe.png',
     nameKey: 'Pipe Fittings & Couplers',
     pressure: 'Matches pipe class',
     diameter: '50mm – 250mm',
@@ -53,7 +52,7 @@ export const products = [
   },
   {
     id: 'sewer-pipe',
-    icon: '🏗️',
+    image: '/image3.png',
     nameKey: 'Heavy-Duty Sewer Pipe',
     pressure: 'PN4',
     diameter: '110mm – 250mm',
