@@ -121,7 +121,7 @@ export default function Hero() {
           <p className="mb-4 text-white text-sm sm:text-base font-normal uppercase tracking-wider drop-shadow">
             {t('hero_certified')}
           </p>
-          <h1 className="font-mono text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-balance drop-shadow-lg">
+          <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-balance drop-shadow-lg">
             {t('hero_brand_prefix')} <span className="text-accent">{t('hero_brand_plastics')}</span> {t('hero_brand_suffix')}
           </h1>
           <p className="mt-4 text-base sm:text-lg md:text-xl font-normal tracking-tight text-white drop-shadow">
@@ -139,7 +139,7 @@ export default function Hero() {
               {t('hero_cta')}
             </Link>
             <a
-              href="https://wa.me/251110000000"
+              href="https://api.whatsapp.com/send?phone=251961363636"
               target="_blank"
               rel="noreferrer"
               onClick={(e) => e.stopPropagation()}
