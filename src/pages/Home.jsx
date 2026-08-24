@@ -41,7 +41,7 @@ export default function Home() {
 
       {/* Why Yadenno */}
       <section className="section-container py-24">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-start">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-stretch">
           {/* Left Column */}
           <div className="space-y-6">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-primary dark:text-white tracking-tight">
@@ -72,12 +72,14 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* Right Column - Full flexible mix image */}
-          <div className="relative h-[420px] sm:h-[520px] w-full mt-2 lg:mt-0 overflow-hidden rounded-sm">
-            <img
-              src="/mix.png"
-              alt="Yadenno Plastics products"
-              className="w-full h-full object-contain scale-110"
+          {/* Right Column - Product video */}
+          <div className="relative min-h-[320px] w-full overflow-hidden rounded-sm">
+            <video
+              src="/videoplayback.mp4"
+              className="w-full h-full object-cover"
+              muted
+              playsInline
+              controls
             />
           </div>
         </div>
@@ -113,6 +115,7 @@ export default function Home() {
                 title: t('home_product_sewerage_title'),
                 description: t('home_product_sewerage_desc'),
                 specification: t('home_product_sewerage_spec'),
+                featured: true,
               },
               {
                 image: '/pipe.png',
@@ -122,7 +125,7 @@ export default function Home() {
                 specification: t('home_product_conduit_spec'),
               },
             ].map((product) => (
-              <article key={product.title} className="flex flex-col overflow-hidden rounded-sm border border-white/10 bg-white/5 text-center hover:border-accent/60 transition-colors duration-300 group">
+              <article key={product.title} className={`flex flex-col overflow-hidden rounded-sm border ${product.featured ? 'border-accent/60' : 'border-white/10'} bg-white/5 text-center hover:border-accent/60 transition-colors duration-300 group`}>
                 <div className="h-48 sm:h-56 flex items-center justify-center p-2 overflow-hidden">
                   <img
                     src={product.image}

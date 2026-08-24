@@ -84,7 +84,12 @@ export default function Hero() {
             <path strokeLinecap="round" strokeLinejoin="round" d="M13 5l7 7-7 7M5 12h14" />
           </svg>
           <span>
-            <span className="text-white">{isTouch ? `${t('hero_hint_mobile')} ` : `${t('hero_hint')} `}</span>
+            <span className="text-white">
+              {isTouch ? `${t('hero_hint_mobile_prefix')} ` : `${t('hero_hint_prefix')} `}
+              <span className="text-accent">
+                {isTouch ? t('hero_hint_mobile_accent') : t('hero_hint_accent')}
+              </span>
+            </span>
           </span>
         </span>
       </div>
