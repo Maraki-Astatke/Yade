@@ -255,11 +255,30 @@ export default function Home() {
                 {t('home_quote_desc')}
               </p>
 
-              <div className="mt-6 grid gap-4">
+              <div className="mt-6 grid gap-8 sm:grid-cols-2 items-start">
+                <div>
+                  <h3 className="text-xs font-mono font-bold uppercase tracking-widest text-accent mb-1">
+                    {t('contact_office_label')}
+                  </h3>
+                  <p className="text-steel leading-relaxed">{t('contact_office_address')}</p>
+                </div>
+
                 <a href="tel:+251961363636" className="border-l-4 border-accent pl-4 hover:text-accent transition-colors">
                   <span className="block text-xs font-mono font-bold uppercase tracking-widest text-accent">{t('home_call_sales')}</span>
                   <span className="mt-1 block text-lg font-semibold text-primary">+251 961 36 36 36</span>
                 </a>
+
+                <div>
+                  <h3 className="text-xs font-mono font-bold uppercase tracking-widest text-accent mb-1">
+                    {t('contact_managing_director')}
+                  </h3>
+                  <p className="font-semibold text-primary">Fisseha K/mariam</p>
+                  <div className="mt-1 flex flex-col gap-1 text-steel sm:flex-row sm:gap-4">
+                    <a href="tel:+251911146155" className="hover:text-accent transition-colors">+251 911 146 155</a>
+                    <a href="mailto:fisseha@nanfisha.com" className="hover:text-accent transition-colors">fisseha@nanfisha.com</a>
+                  </div>
+                </div>
+
                 <a href="mailto:yadennoplc@gmail.com" className="border-l-4 border-accent pl-4 hover:text-accent transition-colors">
                   <span className="block text-xs font-mono font-bold uppercase tracking-widest text-accent">{t('home_email')}</span>
                   <span className="mt-1 block break-all text-lg font-semibold text-primary">yadennoplc@gmail.com</span>
