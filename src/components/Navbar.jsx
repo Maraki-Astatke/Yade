@@ -80,7 +80,7 @@ export default function Navbar() {
         {/* Mobile menu toggle */}
         <button
           type="button"
-          className="lg:hidden w-10 h-10 flex items-center justify-center text-white"
+          className={`lg:hidden w-10 h-10 flex items-center justify-center ${isHome ? 'text-white' : 'text-primary'}`}
           onClick={() => setMobileOpen((v) => !v)}
           aria-label="Toggle navigation menu"
         >
