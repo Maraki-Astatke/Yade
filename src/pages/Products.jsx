@@ -24,25 +24,25 @@ export default function Products() {
               className="flex flex-col p-6 rounded-sm border border-black/10 dark:border-white/10 bg-white dark:bg-white/5 hover:border-accent transition-colors duration-300"
             >
               <div className="h-48 sm:h-56 -mx-2 -mt-2 mb-4 overflow-hidden flex items-center justify-center">
-                <img src={product.image} alt={product.nameKey} className="h-full w-full object-contain" />
+                <img src={product.image} alt={t(product.nameKey)} className="h-full w-full object-contain" />
               </div>
-              <h3 className="font-semibold text-lg text-primary dark:text-white mb-2">{product.nameKey}</h3>
+              <h3 className="font-semibold text-lg text-primary dark:text-white mb-2">{t(product.nameKey)}</h3>
               <p className="text-base text-steel dark:text-gray-400 leading-relaxed mb-4 flex-1">
-                {product.description}
+                {t(product.descriptionKey)}
               </p>
 
               <dl className="text-sm font-sans space-y-1.5 border-t border-black/5 dark:border-white/10 pt-4">
                 <div className="flex justify-between gap-2">
                   <dt className="text-steel dark:text-gray-500">{t('products_spec_pressure')}</dt>
-                  <dd className="text-primary dark:text-gray-200 font-semibold">{product.pressure}</dd>
+                  <dd className="text-primary dark:text-gray-200 font-semibold">{t(product.pressureKey)}</dd>
                 </div>
                 <div className="flex justify-between gap-2">
                   <dt className="text-steel dark:text-gray-500">{t('products_spec_diameter')}</dt>
-                  <dd className="text-primary dark:text-gray-200 font-semibold">{product.diameter}</dd>
+                  <dd className="text-primary dark:text-gray-200 font-semibold">{t(product.diameterKey)}</dd>
                 </div>
                 <div className="flex justify-between gap-2">
                   <dt className="text-steel dark:text-gray-500">{t('products_spec_use')}</dt>
-                  <dd className="text-primary dark:text-gray-200 font-semibold text-right">{product.use}</dd>
+                  <dd className="text-primary dark:text-gray-200 font-semibold text-right">{t(product.useKey)}</dd>
                 </div>
               </dl>
 
