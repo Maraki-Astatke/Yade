@@ -7,8 +7,8 @@ export default {
       colors: {
         primary: {
           DEFAULT: 'rgb(var(--color-primary) / <alpha-value>)',
-          light:   'rgb(var(--color-primary-light) / <alpha-value>)',
-          dark:    'rgb(var(--color-primary-dark) / <alpha-value>)',
+          light: 'rgb(var(--color-primary-light) / <alpha-value>)',
+          dark: 'rgb(var(--color-primary-dark) / <alpha-value>)',
         },
         steel: {
           DEFAULT: '#4a5568',
@@ -17,8 +17,8 @@ export default {
         },
         accent: {
           DEFAULT: 'rgb(var(--color-accent) / <alpha-value>)',
-          light:   'rgb(var(--color-accent-light) / <alpha-value>)',
-          dark:    'rgb(var(--color-accent-dark) / <alpha-value>)',
+          light: 'rgb(var(--color-accent-light) / <alpha-value>)',
+          dark: 'rgb(var(--color-accent-dark) / <alpha-value>)',
         },
         surface: {
           light: '#f7fafc',

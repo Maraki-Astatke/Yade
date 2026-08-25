@@ -86,7 +86,7 @@ export default function Home() {
       </section>
 
       {/* ── Product Section ── */}
-      <section className="py-20" style={{ backgroundColor: '#1C2766' }}>
+      <section className="py-20" style={{ backgroundColor: '#132D46' }}>
         <div className="section-container">
           <div className="flex flex-col items-center text-center gap-5 mb-10">
             <div>
@@ -200,7 +200,7 @@ export default function Home() {
       </section>
 
       {/* ── Applications and Supply Section ── */}
-      <section className="py-24" style={{ backgroundColor: '#1C2766' }}>
+      <section className="py-24" style={{ backgroundColor: '#132D46' }}>
         <div className="section-container">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div>
