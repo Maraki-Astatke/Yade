@@ -8,7 +8,7 @@
    ──────────────────────────────────────────────────────────────────────── */
 :root {
   /* Teal-green accent — replaces all orange */
-  --brand-accent:        #01C38D;
+  --brand-accent:        #79B62F;
   --brand-accent-light:  #00d99e;
   --brand-accent-dark:   #01a878;
 
@@ -18,7 +18,7 @@
   --brand-primary-dark:  #0b1f31;
 
   /* RGB channels — Tailwind reads these for bg-accent/20, border-accent/40, shadow-accent/30 etc. */
-  --color-accent:        1 195 141;    /* #01C38D */
+  --color-accent:        121 182 47;   /* #79B62F */
   --color-accent-light:  0 217 158;    /* #00d99e */
   --color-accent-dark:   1 168 120;    /* #01a878 */
   --color-primary:       19 45 70;     /* #132D46 */
@@ -31,28 +31,28 @@
 .text-accent,
 a.text-accent,
 span.text-accent,
-p.text-accent                    { color: #01C38D !important; }
-.hover\:text-accent:hover        { color: #01C38D !important; }
+p.text-accent                    { color: #79B62F !important; }
+.hover\:text-accent:hover        { color: #79B62F !important; }
 .hover\:text-accent-light:hover  { color: #00d99e !important; }
 
 /* Accent — background */
-.bg-accent                       { background-color: #01C38D !important; }
-.hover\:bg-accent:hover          { background-color: #01C38D !important; }
+.bg-accent                       { background-color: #79B62F !important; }
+.hover\:bg-accent:hover          { background-color: #79B62F !important; }
 .hover\:bg-accent-light:hover    { background-color: #00d99e !important; }
-.bg-accent\/10                   { background-color: rgba(1,195,141,.10) !important; }
-.bg-accent\/20                   { background-color: rgba(1,195,141,.20) !important; }
-.bg-accent\/30                   { background-color: rgba(1,195,141,.30) !important; }
+.bg-accent\/10                   { background-color: rgba(121,182,47,.10) !important; }
+.bg-accent\/20                   { background-color: rgba(121,182,47,.20) !important; }
+.bg-accent\/30                   { background-color: rgba(121,182,47,.30) !important; }
 
 /* Accent — border */
-.border-accent                   { border-color: #01C38D !important; }
-.border-accent\/20               { border-color: rgba(1,195,141,.20) !important; }
-.hover\:border-accent\/40:hover  { border-color: rgba(1,195,141,.40) !important; }
+.border-accent                   { border-color: #79B62F !important; }
+.border-accent\/20               { border-color: rgba(121,182,47,.20) !important; }
+.hover\:border-accent\/40:hover  { border-color: rgba(121,182,47,.40) !important; }
 
 /* Accent — underline (navbar active) */
-.decoration-accent               { text-decoration-color: #01C38D !important; }
+.decoration-accent               { text-decoration-color: #79B62F !important; }
 
 /* Accent — ring */
-.focus\:ring-accent:focus        { --tw-ring-color: #01C38D !important; }
+.focus\:ring-accent:focus        { --tw-ring-color: #79B62F !important; }
 
 /* Primary — background */
 .bg-primary                      { background-color: #132D46 !important; }
@@ -148,7 +148,7 @@ p.text-accent                    { color: #01C38D !important; }
     left: -50%;
     width: 200%;
     height: 200%;
-    background: conic-gradient(transparent, #01C38D, transparent 30%);
+    background: conic-gradient(transparent, #79B62F, transparent 30%);
     animation: spin-border 2.5s linear infinite;
     z-index: -2;
   }
