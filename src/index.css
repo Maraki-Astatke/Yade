@@ -13,7 +13,7 @@
   --brand-accent-dark:   #01a878;
 
   /* Navy primary — replaces all blue */
-  --brand-primary:       #132D46;
+  --brand-primary:       #1C2766;
   --brand-primary-light: #1a3d5e;
   --brand-primary-dark:  #0b1f31;
 
@@ -21,7 +21,7 @@
   --color-accent:        121 182 47;   /* #79B62F */
   --color-accent-light:  0 217 158;    /* #00d99e */
   --color-accent-dark:   1 168 120;    /* #01a878 */
-  --color-primary:       19 45 70;     /* #132D46 */
+  --color-primary:       28 39 102;    /* #1C2766 */
   --color-primary-light: 26 61 94;     /* #1a3d5e */
   --color-primary-dark:  11 31 49;     /* #0b1f31 */
 }
@@ -55,11 +55,11 @@ p.text-accent                    { color: #79B62F !important; }
 .focus\:ring-accent:focus        { --tw-ring-color: #79B62F !important; }
 
 /* Primary — background */
-.bg-primary                      { background-color: #132D46 !important; }
-.hover\:bg-primary:hover         { background-color: #132D46 !important; }
+.bg-primary                      { background-color: #1C2766 !important; }
+.hover\:bg-primary:hover         { background-color: #1C2766 !important; }
 
 /* Primary — text */
-.text-primary                    { color: #132D46 !important; }
+.text-primary                    { color: #1C2766 !important; }
 
 
 @layer base {
