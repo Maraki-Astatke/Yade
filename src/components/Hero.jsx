@@ -16,12 +16,6 @@ const SLIDE_DURATION = 5000
 export default function Hero() {
   const { t } = useLanguage()
   const [slideIndex, setSlideIndex] = useState(0)
-  const [merged, setMerged] = useState(false)
-  // Detect touch/no-hover devices once, during initial render, so we know
-  // whether to rely on hover handlers or the tap-to-toggle fallback.
-  const [isTouch] = useState(
-    () => typeof window !== 'undefined' && !!window.matchMedia && window.matchMedia('(hover: none)').matches
-  )
   const timerRef = useRef(null)
 
   // Background carousel autoplay.
@@ -32,113 +26,42 @@ export default function Hero() {
     return () => window.clearInterval(timerRef.current)
   }, [])
 
-  const handleMouseEnter = () => {
-    if (!isTouch) setMerged(true)
-  }
-  const handleMouseLeave = () => {
-    if (!isTouch) setMerged(false)
-  }
-  const handleTap = () => {
-    if (isTouch) setMerged((prev) => !prev)
-  }
-
   return (
     <section
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      onClick={handleTap}
-      className="relative w-full h-[90vh] min-h-[650px] overflow-hidden select-none cursor-pointer"
+      className="relative w-full overflow-hidden bg-primary-dark select-none"
       aria-label="Yadenno Plastics PLC hero"
     >
-      {/* Background image carousel */}
-      {SLIDES.map((src, i) => (
+      <div className="absolute inset-0" aria-hidden="true">
         <div
-          key={src}
-          className={`absolute inset-0 bg-cover bg-center transition-opacity duration-[1500ms] ease-in-out ${i === slideIndex ? 'opacity-100' : 'opacity-0'
-            }`}
-          style={{ backgroundImage: `url(${src})` }}
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: 'url(/hero.jpg)' }}
         />
-      ))}
-
-      {/* Dark gradient scrim for legibility (constant darkness) */}
-      <div className="absolute inset-0 bg-black/50" />
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/70 via-primary/20 to-transparent" />
-
-      {/* Idle hint, shown until the hero text is revealed */}
-      <div
-        className={`absolute inset-0 flex flex-col items-center justify-center transition-opacity duration-300 ${merged ? 'opacity-0' : 'opacity-100'
-          }`}
-      >
-        <h2 className="text-4xl sm:text-6xl font-extrabold text-white tracking-tight drop-shadow-xl mb-4">
-          {t('hero_brand_prefix')} <span className="text-accent">{t('hero_brand_plastics')}</span> {t('hero_brand_suffix')}
-        </h2>
-        <p className="text-xs sm:text-sm font-mono tracking-widest uppercase mb-6 drop-shadow-md text-center px-4 text-white/90">
-          <span className="text-accent">{t('hero_manufacturer')}</span> · {t('hero_location')} · <span className="text-accent">{t('hero_country')}</span>
-        </p>
       </div>
-
-      <div className={`absolute bottom-16 left-1/2 -translate-x-1/2 z-30 flex items-center justify-center transition-opacity duration-300 ${merged ? 'opacity-0' : 'opacity-100'
-        }`}>
-        <span className="flex items-center gap-2 text-sm font-mono uppercase tracking-widest animate-pulse">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4 text-white">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M13 5l7 7-7 7M5 12h14" />
-          </svg>
-          <span>
-            <span className="text-white">
-              {isTouch ? `${t('hero_hint_mobile_prefix')} ` : `${t('hero_hint_prefix')} `}
-              <span className="text-accent">
-                {isTouch ? t('hero_hint_mobile_accent') : t('hero_hint_accent')}
-              </span>
-            </span>
-          </span>
-        </span>
-      </div>
-
-      {/* Carousel Dots */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex gap-2.5">
-        {SLIDES.map((_, i) => (
-          <button
-            key={i}
-            onClick={(e) => {
-              e.stopPropagation()
-              setSlideIndex(i)
-              // Reset the timer when manually clicking
-              window.clearInterval(timerRef.current)
-              timerRef.current = window.setInterval(() => {
-                setSlideIndex((prev) => (prev + 1) % SLIDES.length)
-              }, SLIDE_DURATION)
-            }}
-            aria-label={`Go to slide ${i + 1}`}
-            className={`transition-all duration-300 rounded-full ${i === slideIndex
-                ? 'w-8 h-2.5 bg-accent'
-                : 'w-2.5 h-2.5 bg-white/70 hover:bg-white'
-              }`}
-          />
-        ))}
-      </div>
-
-      {/* Revealed content, shown on hover or tap */}
-      <div
-        className={`absolute inset-0 z-20 flex items-center justify-center px-6 transition-all duration-500 ${merged ? 'opacity-100 translate-y-0 delay-300 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'
-          }`}
-      >
-        <div className="max-w-4xl text-center text-white">
-          <p className="mb-4 text-white text-sm sm:text-base font-normal uppercase tracking-wider drop-shadow">
+      <div className="grid min-h-[780px] lg:min-h-[840px] lg:grid-cols-[11fr_9fr]">
+        <div
+          className="relative z-10 flex items-center justify-center border-r border-white/[0.08] px-6 py-24 sm:px-12 lg:px-16 xl:px-24"
+          style={{
+            background: 'linear-gradient(rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)), rgba(255, 255, 255, 0.20)',
+            backdropFilter: 'blur(8px)',
+            WebkitBackdropFilter: 'blur(8px)',
+          }}
+        >
+          <div className="max-w-xl text-center text-white">
+          <p className="mb-4 text-xs font-normal uppercase tracking-[0.16em] text-accent sm:text-sm">
             {t('hero_certified')}
           </p>
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-balance drop-shadow-lg">
+          <h1 className="whitespace-nowrap text-3xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
             {t('hero_brand_prefix')} <span className="text-accent">{t('hero_brand_plastics')}</span> {t('hero_brand_suffix')}
           </h1>
-          <p className="mt-4 text-base sm:text-lg md:text-xl font-normal tracking-tight text-white drop-shadow">
+          <p className="mt-4 text-base font-normal leading-relaxed tracking-tight text-white sm:text-lg lg:text-xl">
             {t('hero_tagline')}
           </p>
-          <p className="mt-4 text-sm sm:text-base text-gray-100/90 leading-relaxed max-w-xl mx-auto text-balance">
+          <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-gray-100/85 sm:text-base">
             {t('hero_description')}
           </p>
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
               to="/products"
-              onClick={(e) => e.stopPropagation()}
               className="btn-circle-border min-w-44 justify-center text-base shadow-xl shadow-black/20"
             >
               {t('hero_cta')}
@@ -147,11 +70,42 @@ export default function Hero() {
               href="https://api.whatsapp.com/send?phone=251961363636"
               target="_blank"
               rel="noreferrer"
-              onClick={(e) => e.stopPropagation()}
               className="inline-flex min-w-44 items-center justify-center rounded-full border-2 border-accent bg-primary/35 px-6 py-3 text-base font-semibold text-white shadow-xl shadow-black/20 transition-colors hover:bg-accent"
             >
               {t('hero_whatsapp')}
             </a>
+          </div>
+          <p className="mt-10 text-xs font-mono uppercase tracking-widest text-white/60">
+            <span className="text-accent">{t('hero_manufacturer')}</span> · {t('hero_location')} · <span className="text-accent">{t('hero_country')}</span>
+          </p>
+          </div>
+        </div>
+
+        <div className="relative min-h-[360px] overflow-hidden lg:min-h-0">
+          {SLIDES.map((src, i) => (
+            <div
+              key={src}
+              className={`absolute inset-0 bg-cover bg-center transition-opacity duration-[1500ms] ease-in-out ${i === slideIndex ? 'opacity-100' : 'opacity-0'}`}
+              style={{ backgroundImage: `url(${src})` }}
+            />
+          ))}
+          <div className="absolute inset-0 bg-black/25" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/25 via-transparent to-black/10" />
+          <div className="absolute bottom-8 left-6 z-10 flex gap-2.5 sm:left-10">
+            {SLIDES.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => {
+                  setSlideIndex(i)
+                  window.clearInterval(timerRef.current)
+                  timerRef.current = window.setInterval(() => {
+                    setSlideIndex((prev) => (prev + 1) % SLIDES.length)
+                  }, SLIDE_DURATION)
+                }}
+                aria-label={`Go to slide ${i + 1}`}
+                className={`h-2.5 rounded-full transition-all duration-300 ${i === slideIndex ? 'w-8 bg-accent' : 'w-2.5 bg-white/70 hover:bg-white'}`}
+              />
+            ))}
           </div>
         </div>
       </div>
