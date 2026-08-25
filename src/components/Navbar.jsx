@@ -41,7 +41,7 @@ export default function Navbar() {
         borderBottom: '1px solid rgba(255,255,255,0.08)',
       }}
     >
-      <nav className="w-full px-4 sm:px-8 lg:px-16 xl:px-24 mx-auto flex items-center justify-between h-20">
+      <nav className="w-full px-4 sm:px-8 lg:px-16 xl:px-24 mx-auto flex items-center justify-between h-24 pt-3 sm:h-20 sm:pt-0">
         {/* Logo — far left. Text wordmark "YADENNO" is the primary brand mark;
             the small svg mark from src/assets is used as an accent icon. */}
         <Link to="/" className="flex items-center shrink-0" onClick={() => setMobileOpen(false)}>

@@ -39,7 +39,7 @@ export default function Hero() {
       </div>
       <div className="grid min-h-[780px] lg:min-h-[840px] lg:grid-cols-[11fr_9fr]">
         <div
-          className="relative z-10 flex items-center justify-center border-r border-white/[0.08] px-6 py-24 sm:px-12 lg:px-16 xl:px-24"
+          className="relative z-10 flex items-center justify-center border-r border-white/[0.08] px-6 pb-24 pt-40 sm:px-12 sm:py-24 lg:px-16 xl:px-24"
           style={{
             background: 'linear-gradient(rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)), rgba(255, 255, 255, 0.20)',
             backdropFilter: 'blur(8px)',
@@ -91,7 +91,7 @@ export default function Hero() {
           ))}
           <div className="absolute inset-0 bg-black/25" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/25 via-transparent to-black/10" />
-          <div className="absolute bottom-8 left-6 z-10 flex gap-2.5 sm:left-10">
+          <div className="absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 gap-2.5 sm:left-10 sm:translate-x-0">
             {SLIDES.map((_, i) => (
               <button
                 key={i}
