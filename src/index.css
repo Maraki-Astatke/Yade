@@ -96,7 +96,7 @@ p.text-accent                    { color: #79B62F !important; }
     transition: all 0.3s;
   }
   .btn-accent:hover {
-    background-color: var(--brand-accent-light);
+    background-color: var(--brand-accent);
     transform: translateY(-2px);
     box-shadow: 0 8px 24px color-mix(in srgb, var(--brand-accent) 35%, transparent);
   }
