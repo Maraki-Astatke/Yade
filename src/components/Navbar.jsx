@@ -15,8 +15,8 @@ export default function Navbar() {
 
   const navLinkClass = ({ isActive }) =>
     `relative text-xl sm:text-2xl font-bold transition-colors duration-200 ${isActive
-      ? `${isHome ? 'text-white' : 'text-primary'} underline decoration-accent decoration-4 underline-offset-8`
-      : `${isHome ? 'text-white hover:text-gray-200' : 'text-primary hover:text-primary/80'}`
+      ? 'text-primary underline decoration-accent decoration-4 underline-offset-8'
+      : 'text-primary hover:text-primary/80'
     }`
 
   const mobileNavLinkClass = ({ isActive }) =>
@@ -35,10 +35,10 @@ export default function Navbar() {
   return (
     <header className="absolute top-0 inset-x-0 z-50 transition-colors duration-300"
       style={{
-        background: 'rgba(255, 255, 255, 0.20)',
+        background: 'rgba(255, 255, 255, 0.40)',
         backdropFilter: 'blur(8px)',
         WebkitBackdropFilter: 'blur(8px)',
-        borderBottom: '1px solid rgba(255,255,255,0.08)',
+        borderBottom: '1px solid rgba(0,0,0,0.05)',
       }}
     >
       <nav className="w-full px-4 sm:px-8 lg:px-16 xl:px-24 mx-auto flex items-center justify-between h-24 pt-3 sm:h-20 sm:pt-0">
@@ -61,7 +61,7 @@ export default function Navbar() {
 
         {/* Right side controls */}
         <div className="hidden lg:flex items-center gap-4">
-          <Link to="/contact" className={`border-2 border-accent px-5 py-2 rounded-md font-medium hover:bg-accent hover:text-white transition-colors ${isHome ? 'text-white' : 'text-primary'}`}>
+          <Link to="/contact" className="border-2 border-accent px-5 py-2 rounded-md font-medium hover:bg-accent hover:text-white transition-colors text-primary">
             {t('nav_quote')}
           </Link>
 
@@ -69,18 +69,18 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => changeLanguage(lang === 'en' ? 'am' : 'en')}
-            className={`flex items-center gap-1 p-1 rounded-full text-sm font-mono font-bold bg-white/10 transition-colors duration-300 ${isHome ? 'text-white hover:bg-white/20' : 'text-primary hover:bg-primary/10'}`}
+            className="flex items-center gap-1 p-1 rounded-full text-sm font-mono font-bold bg-black/5 transition-colors duration-300 text-primary hover:bg-primary/10"
             aria-label="Toggle language"
           >
-            <span className={`px-2.5 py-1 rounded-full transition-colors ${lang === 'en' ? `${isHome ? 'bg-white text-primary' : 'bg-primary text-white'} shadow-sm` : isHome ? 'text-white/70' : 'text-primary/70'}`}>EN</span>
-            <span className={`px-2.5 py-1 rounded-full transition-colors ${lang === 'am' ? `${isHome ? 'bg-white text-primary' : 'bg-primary text-white'} shadow-sm` : isHome ? 'text-white/70' : 'text-primary/70'}`}>AM</span>
+            <span className={`px-2.5 py-1 rounded-full transition-colors ${lang === 'en' ? 'bg-primary text-white shadow-sm' : 'text-primary/70'}`}>EN</span>
+            <span className={`px-2.5 py-1 rounded-full transition-colors ${lang === 'am' ? 'bg-primary text-white shadow-sm' : 'text-primary/70'}`}>AM</span>
           </button>
         </div>
 
         {/* Mobile menu toggle */}
         <button
           type="button"
-          className={`lg:hidden w-10 h-10 flex items-center justify-center ${isHome ? 'text-white' : 'text-primary'}`}
+          className="lg:hidden w-10 h-10 flex items-center justify-center text-primary"
           onClick={() => setMobileOpen((v) => !v)}
           aria-label="Toggle navigation menu"
         >

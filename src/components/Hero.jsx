@@ -37,32 +37,32 @@ export default function Hero() {
           style={{ backgroundImage: 'url(/hero.jpg)' }}
         />
       </div>
-    <div className="grid min-h-[780px] lg:min-h-[840px] lg:grid-cols-[11fr_9fr]">
+      <div className="grid min-h-[780px] lg:min-h-[840px] lg:grid-cols-[11fr_9fr]">
         <div
-          className="relative z-10 flex items-center justify-center border-r border-white/[0.08] px-6 pb-24 pt-40 sm:px-12 sm:pt-36 sm:pb-24 lg:px-16 lg:py-24 xl:px-24"
+          className="relative z-10 flex items-center justify-center border-r border-black/[0.05] px-6 pb-24 pt-40 sm:px-12 sm:pt-36 sm:pb-24 lg:px-16 lg:py-24 xl:px-24"
           style={{
-            background: 'linear-gradient(rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)), rgba(255, 255, 255, 0.20)',
+            background: 'rgba(255, 255, 255, 0.82)',
             backdropFilter: 'blur(8px)',
             WebkitBackdropFilter: 'blur(8px)',
           }}
         >
-          <div className="max-w-xl text-center text-white">
-          <p className="mb-4 text-[12.5px] font-normal uppercase tracking-[0.16em] text-accent sm:text-[12.5px] md:text-[13.5px] lg:text-[14px] xl:text-[16px]">
+          <div className="max-w-xl text-center">
+          <p className="mb-4 text-[12.5px] font-bold uppercase tracking-[0.16em] text-accent sm:text-[12.5px] md:text-[13.5px] lg:text-[14px] xl:text-[16px]">
             {t('hero_certified')}
           </p>
-          <h1 className="whitespace-nowrap text-[28px] font-extrabold leading-tight tracking-tight sm:text-[38px] md:text-[46px] lg:text-[52px] xl:text-[56px]">
+          <h1 className="whitespace-nowrap text-[28px] font-extrabold leading-tight tracking-tight sm:text-[38px] md:text-[46px] lg:text-[52px] xl:text-[56px] text-primary">
             {t('hero_brand_prefix')} <span className="text-accent">{t('hero_brand_plastics')}</span> {t('hero_brand_suffix')}
           </h1>
-          <p className="mt-4 text-[16px] font-normal leading-relaxed tracking-tight text-white sm:text-[17px] md:text-[19px] lg:text-[21px] xl:text-[24px]">
+          <p className="mt-4 text-[16px] font-bold leading-relaxed tracking-tight text-primary sm:text-[17px] md:text-[19px] lg:text-[21px] xl:text-[24px]">
             {t('hero_tagline')}
           </p>
-          <p className="mx-auto mt-4 max-w-xl text-[14.5px] leading-relaxed text-gray-100/85 sm:text-[14.5px] md:text-[15.5px] lg:text-[16px] xl:text-[18px]">
+          <p className="mx-auto mt-4 max-w-xl text-[14.5px] leading-relaxed text-steel-dark sm:text-[14.5px] md:text-[15.5px] lg:text-[16px] xl:text-[18px]">
             {t('hero_description')}
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
               to="/products"
-              className="btn-circle-border min-w-44 justify-center text-[15.5px] sm:text-[16px] md:text-[16.5px] lg:text-[16.5px] xl:text-[17.5px] shadow-xl shadow-black/20"
+              className="inline-flex min-w-44 items-center justify-center rounded-full bg-primary px-6 py-3.5 text-[15.5px] sm:text-[16px] md:text-[16.5px] lg:text-[16.5px] xl:text-[17.5px] font-bold text-white shadow-xl shadow-primary/20 transition-colors hover:bg-primary-light"
             >
               {t('hero_cta')}
             </Link>
@@ -70,12 +70,12 @@ export default function Hero() {
               href="https://api.whatsapp.com/send?phone=251961363636"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex min-w-44 items-center justify-center rounded-full border-2 border-accent bg-primary/35 px-6 py-3 text-[15.5px] sm:text-[16px] md:text-[16.5px] lg:text-[16.5px] xl:text-[17.5px] font-semibold text-white shadow-xl shadow-black/20 transition-colors hover:bg-accent"
+              className="inline-flex min-w-44 items-center justify-center rounded-full border-2 border-accent bg-white px-6 py-3 text-[15.5px] sm:text-[16px] md:text-[16.5px] lg:text-[16.5px] xl:text-[17.5px] font-bold text-accent shadow-xl shadow-accent/10 transition-colors hover:bg-accent hover:text-white"
             >
               {t('hero_whatsapp')}
             </a>
           </div>
-          <p className="mt-10 whitespace-nowrap text-[12.5px] font-mono uppercase tracking-widest text-white/60 sm:text-[12.5px] md:text-[13.5px] lg:text-[14px] xl:text-[16px]">
+          <p className="mt-10 whitespace-nowrap text-[12.5px] font-bold font-mono uppercase tracking-widest text-accent sm:text-[12.5px] md:text-[13.5px] lg:text-[14px] xl:text-[16px]">
             <span className="text-accent">{t('hero_manufacturer')}</span> · {t('hero_location')} · <span className="text-accent">{t('hero_country')}</span>
           </p>
           </div>
