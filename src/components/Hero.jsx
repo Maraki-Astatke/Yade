@@ -47,22 +47,22 @@ export default function Hero() {
           }}
         >
           <div className="max-w-xl text-center text-white">
-          <p className="mb-4 text-[12.5px] font-normal uppercase tracking-[0.16em] text-accent sm:text-[12.5px] md:text-[13.5px] lg:text-[15px] xl:text-[17px]">
+          <p className="mb-4 text-[12.5px] font-normal uppercase tracking-[0.16em] text-accent sm:text-[12.5px] md:text-[13.5px] lg:text-[14px] xl:text-[16px]">
             {t('hero_certified')}
           </p>
-          <h1 className="whitespace-nowrap text-[28px] font-extrabold leading-tight tracking-tight sm:text-[38px] md:text-[46px] lg:text-[54px] xl:text-6xl">
+          <h1 className="whitespace-nowrap text-[28px] font-extrabold leading-tight tracking-tight sm:text-[38px] md:text-[46px] lg:text-[52px] xl:text-[56px]">
             {t('hero_brand_prefix')} <span className="text-accent">{t('hero_brand_plastics')}</span> {t('hero_brand_suffix')}
           </h1>
-          <p className="mt-4 text-[16px] font-normal leading-relaxed tracking-tight text-white sm:text-[17px] md:text-[19px] lg:text-[22px] xl:text-[26px]">
+          <p className="mt-4 text-[16px] font-normal leading-relaxed tracking-tight text-white sm:text-[17px] md:text-[19px] lg:text-[21px] xl:text-[24px]">
             {t('hero_tagline')}
           </p>
-          <p className="mx-auto mt-4 max-w-xl text-[14.5px] leading-relaxed text-gray-100/85 sm:text-[14.5px] md:text-[15.5px] lg:text-[17px] xl:text-[19px]">
+          <p className="mx-auto mt-4 max-w-xl text-[14.5px] leading-relaxed text-gray-100/85 sm:text-[14.5px] md:text-[15.5px] lg:text-[16px] xl:text-[18px]">
             {t('hero_description')}
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
               to="/products"
-              className="btn-circle-border min-w-44 justify-center text-[15.5px] sm:text-[16px] md:text-[16.5px] lg:text-[17px] xl:text-[18.5px] shadow-xl shadow-black/20"
+              className="btn-circle-border min-w-44 justify-center text-[15.5px] sm:text-[16px] md:text-[16.5px] lg:text-[16.5px] xl:text-[17.5px] shadow-xl shadow-black/20"
             >
               {t('hero_cta')}
             </Link>
@@ -70,12 +70,12 @@ export default function Hero() {
               href="https://api.whatsapp.com/send?phone=251961363636"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex min-w-44 items-center justify-center rounded-full border-2 border-accent bg-primary/35 px-6 py-3 text-[15.5px] sm:text-[16px] md:text-[16.5px] lg:text-[17px] xl:text-[18.5px] font-semibold text-white shadow-xl shadow-black/20 transition-colors hover:bg-accent"
+              className="inline-flex min-w-44 items-center justify-center rounded-full border-2 border-accent bg-primary/35 px-6 py-3 text-[15.5px] sm:text-[16px] md:text-[16.5px] lg:text-[16.5px] xl:text-[17.5px] font-semibold text-white shadow-xl shadow-black/20 transition-colors hover:bg-accent"
             >
               {t('hero_whatsapp')}
             </a>
           </div>
-          <p className="mt-10 text-[12.5px] font-mono uppercase tracking-widest text-white/60 sm:text-[12.5px] md:text-[13.5px] lg:text-[15px] xl:text-[17px]">
+          <p className="mt-10 whitespace-nowrap text-[12.5px] font-mono uppercase tracking-widest text-white/60 sm:text-[12.5px] md:text-[13.5px] lg:text-[14px] xl:text-[16px]">
             <span className="text-accent">{t('hero_manufacturer')}</span> · {t('hero_location')} · <span className="text-accent">{t('hero_country')}</span>
           </p>
           </div>
