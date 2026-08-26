@@ -224,6 +224,18 @@ p.text-accent {
       transform: rotate(360deg);
     }
   }
+
+  .btn-whatsapp {
+    border: 2px solid var(--brand-accent);
+    background-color: white;
+    color: var(--brand-accent) !important;
+    transition: all 0.3s;
+  }
+
+  .btn-whatsapp:hover {
+    background-color: var(--brand-accent) !important;
+    color: white !important;
+  }
 }
 
 @layer utilities {
