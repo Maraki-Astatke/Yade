@@ -1,9 +1,22 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Hero from '../components/Hero.jsx'
 import { useLanguage } from '../context/LanguageContext.jsx'
 
 export default function Home() {
   const { t } = useLanguage()
+  const [form, setForm] = useState({ name: '', phone: '', diameter: '', pnClass: '', orderDetails: '' })
+  const [submitted, setSubmitted] = useState(false)
+
+  const handleChange = (e) => {
+    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    setSubmitted(true)
+    setForm({ name: '', phone: '', diameter: '', pnClass: '', orderDetails: '' })
+  }
 
   const reasons = [
     { title: t('home_why_1_title'), desc: t('home_why_1_desc'), icon: '✅' },
@@ -277,7 +290,6 @@ export default function Home() {
                   </h3>
                   <p className="font-semibold text-primary">Fisseha K/mariam</p>
                   <div className="mt-1 flex flex-col gap-1 text-steel sm:flex-row sm:gap-4">
-                    <a href="tel:+251911146155" className="hover:text-accent transition-colors">+251 911 146 155</a>
                     <a href="mailto:fisseha@nanfisha.com" className="hover:text-accent transition-colors">fisseha@nanfisha.com</a>
                   </div>
                 </div>
@@ -290,20 +302,24 @@ export default function Home() {
             </div>
 
             <form
-              onSubmit={(event) => event.preventDefault()}
+              onSubmit={handleSubmit}
               className="grid h-full grid-cols-1 sm:grid-cols-2 gap-5 rounded-sm border-2 border-accent/30 bg-surface-light p-6 sm:p-8"
             >
               {[
-                { id: 'quote-name', label: t('home_full_name'), type: 'text', placeholder: t('home_full_name_placeholder') },
-                { id: 'quote-phone', label: t('home_phone_number'), type: 'tel', placeholder: '+251 9XX XXX XXX' },
-                { id: 'quote-diameter', label: t('home_pipe_diameter'), type: 'text', placeholder: t('home_pipe_diameter_placeholder') },
-                { id: 'quote-pn-class', label: t('home_pn_class'), type: 'text', placeholder: t('home_pn_class_placeholder') },
+                { id: 'quote-name', key: 'name', label: t('home_full_name'), type: 'text', placeholder: t('home_full_name_placeholder') },
+                { id: 'quote-phone', key: 'phone', label: t('home_phone_number'), type: 'tel', placeholder: '+251 9XX XXX XXX' },
+                { id: 'quote-diameter', key: 'diameter', label: t('home_pipe_diameter'), type: 'text', placeholder: t('home_pipe_diameter_placeholder') },
+                { id: 'quote-pn-class', key: 'pnClass', label: t('home_pn_class'), type: 'text', placeholder: t('home_pn_class_placeholder') },
               ].map((field) => (
                 <div key={field.id}>
                   <label htmlFor={field.id} className="mb-1.5 block text-sm font-medium text-primary">{field.label}</label>
                   <input
                     id={field.id}
+                    name={field.key}
                     type={field.type}
+                    required
+                    value={form[field.key]}
+                    onChange={handleChange}
                     placeholder={field.placeholder}
                     className="w-full rounded-md border border-black/10 bg-white px-4 py-2.5 text-primary focus:outline-none focus:ring-2 focus:ring-accent"
                   />
@@ -314,14 +330,24 @@ export default function Home() {
                 <label htmlFor="quote-order-details" className="mb-1.5 block text-sm font-medium text-primary">{t('home_order_details')}</label>
                 <textarea
                   id="quote-order-details"
+                  name="orderDetails"
+                  required
+                  value={form.orderDetails}
+                  onChange={handleChange}
                   rows={4}
                   className="w-full resize-none rounded-md border border-black/10 bg-white px-4 py-2.5 text-primary focus:outline-none focus:ring-2 focus:ring-accent"
                 />
               </div>
 
-              <Link to="/contact#quote" className="btn-accent inline-flex w-full justify-center sm:col-span-2">
+              <button type="submit" className="btn-accent inline-flex w-full justify-center sm:col-span-2">
                 {t('home_send_quote')}
-              </Link>
+              </button>
+
+              {submitted && (
+                <p className="text-sm text-green-600 dark:text-green-400 text-center sm:col-span-2 pt-2">
+                  {t('contact_form_success')}
+                </p>
+              )}
               <p className="text-center text-sm text-steel sm:col-span-2">{t('home_quote_note')}</p>
             </form>
           </div>

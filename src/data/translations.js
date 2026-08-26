@@ -186,9 +186,9 @@ export const translations = {
     contact_form_submit: 'Send Message',
     contact_form_success: 'Thank you — your message has been received. Our team will reach out shortly.',
     contact_info_title: 'Get in Touch',
-    contact_info_address: 'Tatek Industry Zone, Sebeta, Oromia, Ethiopia',
-    contact_info_phone: '+251 11 000 0000',
-    contact_info_email: 'info@yadennoplastics.com',
+    contact_info_address: 'Tatek Industry Zone, Burayu, Oromia, Ethiopia',
+    contact_info_phone: '+251 961 36 36 36',
+    contact_info_email: 'yadennoplc@gmail.com',
     contact_info_hours: 'Mon – Sat: 8:00 AM – 6:00 PM',
 
     // Footer
@@ -376,9 +376,9 @@ export const translations = {
     contact_form_submit: 'መልእክት ይላኩ',
     contact_form_success: 'እናመስግናለን — መልእክትዎ ደርሶናል። ቡድናችን በቅርቡ ያግኙዎታል።',
     contact_info_title: 'ያግኙን',
-    contact_info_address: 'ተከት ኢንዱስትሪ ዞን፣ ሰበታ፣ ኦሮሚያ፣ ኢትዮጵያ',
-    contact_info_phone: '+251 11 000 0000',
-    contact_info_email: 'info@yadennoplastics.com',
+    contact_info_address: 'ተከት ኢንዱስትሪ ዞን፣ ቡራዩ፣ ኦሮሚያ፣ ኢትዮጵያ',
+    contact_info_phone: '+251 961 36 36 36',
+    contact_info_email: 'yadennoplc@gmail.com',
     contact_info_hours: 'ሰኞ – ቅዳሜ፦ 8፡00 ጥዋት – 6፡00 ማታ',
 
     footer_factory: 'ፋብሪካ',

@@ -59,7 +59,6 @@ export default function Contact() {
               </h3>
               <p className="font-semibold text-primary dark:text-white">Fisseha K/mariam</p>
               <div className="mt-1 flex flex-col gap-1 text-steel dark:text-gray-300 sm:flex-row sm:gap-4">
-                <a href="tel:+251911146155" className="hover:text-accent transition-colors">+251 911 146 155</a>
                 <a href="mailto:fisseha@nanfisha.com" className="hover:text-accent transition-colors">fisseha@nanfisha.com</a>
               </div>
             </div>
